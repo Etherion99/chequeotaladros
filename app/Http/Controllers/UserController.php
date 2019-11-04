@@ -26,16 +26,16 @@ class UserController extends Controller
     		$response = [
                 'ok' => false,
                 'code' => $e->errorInfo[1],
-                'message' => 'duplicate email error'
+                'message' => 'duplicate email'
             ];
     	}
 
     	return response()->json($response);
     }
 
-    public function login($email, $password){
-    	return response()->json([
-    		'email' => 'hola'
-    	]);
+    public function login(Request $request){
+    	$user = User::where('email', $request->email)->where('password', $request->password)->get();
+
+    	return response()->json($user);
     }
 }
