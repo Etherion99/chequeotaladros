@@ -42,14 +42,14 @@ class UserController extends Controller
                 'code' => 200,
                 'message' => 'successful'
             ];
-    	}else[
+    	}else{
     		$response = [
                 'ok' => false,
                 'code' => 15,
                 'message' => 'invalid user or password'
             ];
-        ]
+        }
 
-    	return response()->json($user);
+    	return response()->json($response);
     }
 }
