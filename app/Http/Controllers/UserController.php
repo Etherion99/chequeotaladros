@@ -25,7 +25,8 @@ class UserController extends Controller
     	} catch (\Exception $e){
     		$response = [
                 'ok' => false,
-                'code' => $e->errorInfo[1]
+                'code' => $e->errorInfo[1],
+                'message' => 'duplicate email'
             ];
     	}
 
