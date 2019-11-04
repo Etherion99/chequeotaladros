@@ -48,7 +48,7 @@ class UserController extends Controller
                 'ok' => false,
                 'code' => 15,
                 'message' => 'invalid email or password',
-                'data' => var_dump($user)
+                'data' => var_export(var_dump($user), true);
             ];
         }
 
