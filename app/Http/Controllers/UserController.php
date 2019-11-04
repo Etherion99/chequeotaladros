@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\User;
 
+use Exception;
+
 class UserController extends Controller
 {
     public function signup(Request $request){
@@ -20,7 +22,7 @@ class UserController extends Controller
             $user->email = $request->email;
             $user->password = $request->password;
             $user->save();
-    	} catch (Illuminate\Database\QueryException $e){
+    	} catch (\Exception $e){
     		$errorCode = $e->errorInfo[1];
 
             if($errorCode == 1062){
