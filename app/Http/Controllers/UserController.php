@@ -23,14 +23,10 @@ class UserController extends Controller
             $user->password = $request->password;
             $user->save();
     	} catch (\Exception $e){
-    		$errorCode = $e->errorInfo[1];
-
-            if($errorCode == 1062){
-                $response = [
-                    'ok' => false,
-                    'code' => $errorCode
-                ];
-            }
+    		$response = [
+                'ok' => false,
+                'code' => $e->errorInfo[1]
+            ];
     	}
 
     	return response()->json($response);
