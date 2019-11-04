@@ -51,6 +51,7 @@ class UserController extends Controller
                 'data' => $user
             ];
         }
+        
 
     	return response()->json($response);
     }
