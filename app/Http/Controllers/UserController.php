@@ -8,7 +8,9 @@ class UserController extends Controller
 {
     public function signup($email, $password){
     	return response()->json([
-    		'email' => 'hola'
+    		'code' => 200,
+    		'message' => 'successful',
+    		'ok' => true
     	]);
     }
 
