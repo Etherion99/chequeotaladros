@@ -46,7 +46,7 @@ class UserController extends Controller
     		$response = [
                 'ok' => false,
                 'code' => 15,
-                'message' => 'invalid user or password'
+                'message' => 'invalid email or password'
             ];
         }
 
