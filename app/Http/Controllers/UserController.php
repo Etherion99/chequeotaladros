@@ -26,7 +26,7 @@ class UserController extends Controller
     		$response = [
                 'ok' => false,
                 'code' => $e->errorInfo[1],
-                'message' => 'duplicate email'
+                'message' => 'duplicate email error'
             ];
     	}
 
