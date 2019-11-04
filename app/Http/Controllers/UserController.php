@@ -36,7 +36,7 @@ class UserController extends Controller
     public function login(Request $request){
     	$user = User::where('email', $request->email)->where('password', $request->password)->get();
 
-    	if(!empty($user)){
+    	if(empty($user)){
     		$response = [
                 'ok' => true,
                 'code' => 200,
@@ -51,7 +51,7 @@ class UserController extends Controller
                 'data' => $user
             ];
         }
-        
+
 
     	return response()->json($response);
     }
