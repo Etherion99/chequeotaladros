@@ -40,13 +40,15 @@ class UserController extends Controller
     		$response = [
                 'ok' => true,
                 'code' => 200,
-                'message' => 'successful'
+                'message' => 'successful',
+                'data' => $user
             ];
     	}else{
     		$response = [
                 'ok' => false,
                 'code' => 15,
-                'message' => 'invalid email or password'
+                'message' => 'invalid email or password',
+                'data' => $user
             ];
         }
 
