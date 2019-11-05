@@ -34,7 +34,7 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
-    	$user = User::where('email', $request->email)->where('password', $request->password)->get();
+    	$user = User::where('email', $request->email)->where('password', $request->password)->first();
 
     	if(empty($user)){
     		$response = [
@@ -48,7 +48,7 @@ class UserController extends Controller
                 'ok' => false,
                 'code' => 15,
                 'message' => 'invalid email or password',
-                'data' => var_export(var_dump($user), true)
+                'data' => empty($user)
             ];
         }
 
