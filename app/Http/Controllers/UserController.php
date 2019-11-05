@@ -17,20 +17,20 @@ class UserController extends Controller
     		'ok' => true
     	];
 
-    	try{
+    	//try{
     		$user = new User;
     		$user->doc = $request->doc;
     		$user->name = $request->name;
             $user->email = $request->email;
             $user->password = $request->password;
             $user->save();
-    	} catch (\Exception $e){
+    	/*} catch (\Exception $e){
     		$response = [
                 'ok' => false,
                 'code' => $e->errorInfo[1],
                 'message' => 'duplicate email'
             ];
-    	}
+    	}*/
 
     	return response()->json($response);
     }
