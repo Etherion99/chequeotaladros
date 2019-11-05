@@ -36,19 +36,17 @@ class UserController extends Controller
     public function login(Request $request){
     	$user = User::where('email', $request->email)->where('password', $request->password)->first();
 
-    	if(empty($user)){
+    	if(!empty($user)){
     		$response = [
                 'ok' => true,
                 'code' => 200,
-                'message' => 'successful',
-                'data' => empty($user)
+                'message' => 'successful'
             ];
     	}else{
     		$response = [
                 'ok' => false,
                 'code' => 15,
-                'message' => 'invalid email or password',
-                'data' => empty($user)
+                'message' => 'invalid email or password'
             ];
         }
 
