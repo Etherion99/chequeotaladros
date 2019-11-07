@@ -14,6 +14,8 @@ class User extends Model
         'password',
     ];
 
+    protected $primaryKey = 'doc';
+
     public function projects(){
     	return $this->hasMany('App\Project', 'doc');
     }
