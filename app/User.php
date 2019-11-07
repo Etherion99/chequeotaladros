@@ -14,7 +14,7 @@ class User extends Model
         'password',
     ];
 
-    public function project(){
-    	return $this->hasOne('App\Project');
+    public function projects(){
+    	return $this->hasMany('App\Project');
     }
 }
