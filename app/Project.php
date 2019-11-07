@@ -11,6 +11,6 @@ class Project extends Model
     ];
 
     public function creator(){
-    	return $this->hasOne('App\User', 'creator');
+    	return $this->belongsTo('App\User');
     }
 }
