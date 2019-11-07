@@ -13,4 +13,8 @@ class User extends Model
     protected $hidden = [
         'password',
     ];
+
+    public function project(){
+    	return $this->hasOne('App\Project');
+    }
 }
