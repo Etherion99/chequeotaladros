@@ -31,7 +31,7 @@ class ProjectController extends Controller
     	$creator = User::find($request->creator->doc)->first();
 
     	$project = new project;
-		$project->name = $request->doc;
+		$project->name = $request->name;
 		$project->creator()->associate($creator);
         $project->save();
     }
