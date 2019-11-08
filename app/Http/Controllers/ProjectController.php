@@ -38,7 +38,7 @@ class ProjectController extends Controller
     	$response = [
             'ok' => false,
             'code' => 4,
-            'message' => $request->creator
+            'message' => $request->creator['doc']
         ];
 
 
