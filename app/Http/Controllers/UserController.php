@@ -55,8 +55,7 @@ class UserController extends Controller
     	return response()->json($response);
     }
 
-    public function search(Request $request){
-        $text = "pablo";
+    public function search($text){
         $parts = count(explode(' ', $text));
 
         if($parts > 1){
