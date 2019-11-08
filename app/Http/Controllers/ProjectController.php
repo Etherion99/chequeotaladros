@@ -35,8 +35,13 @@ class ProjectController extends Controller
 		$project->creator()->associate($creator);
         $project->save();*/
 
-        return response()->json([
-        	"data" => gettype($request->creator)
-        ]);
+    	$response = [
+            'ok' => false,
+            'code' => '4',
+            'message' => 'duplicate email'
+        ];
+
+
+        return response()->json($response);
     }
 }
