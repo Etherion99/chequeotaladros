@@ -69,6 +69,6 @@ class UserController extends Controller
                     ->get();
         }
 
-        return $text;
+        return $users;
     }
 }
