@@ -36,20 +36,20 @@ class ProjectController extends Controller
     		'ok' => true
     	];
 
-    	try{
+    	//try{
     		$creator = User::find($request->creator['doc'])->first();
 
     		$project = new Project;
 			$project->name = $request->name;
 			$project->creator()->associate($creator);
 	        $project->save();
-    	} catch (\Exception $e){
+    	/*} catch (\Exception $e){
     		$response = [
                 'ok' => false,
                 'code' => $e,
                 'message' => 'duplicate email'
             ];
-    	}
+    	}*/
 
         return response()->json($response);
     }
