@@ -59,7 +59,8 @@ class UserController extends Controller
         $parts = count(explode(' ', $text));
 
         if($parts > 1){
-            $users = User::whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
+            $users = User::select("id", "name")
+                    ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
                     ->limit(3)
                     ->get();
         }else{
