@@ -16,9 +16,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->timestamps();
 
-            $table->primary('doc');
-            DB::statement('ALTER TABLE users ADD FULLTEXT fulltext_name (name)');
+            $table->primary('doc'); 
         });
+
+        DB::statement('ALTER TABLE users ADD FULLTEXT fulltext_name (name)');
     }
 
     public function down()
