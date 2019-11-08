@@ -46,7 +46,7 @@ class ProjectController extends Controller
     	} catch (\Exception $e){
     		$response = [
                 'ok' => false,
-                'code' => $e->errorInfo[1],
+                'code' => $e,
                 'message' => 'duplicate email'
             ];
     	}
