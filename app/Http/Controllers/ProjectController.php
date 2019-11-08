@@ -37,12 +37,12 @@ class ProjectController extends Controller
     	];
 
     	//try{
-    		$creator = User::find($request->creator_user['doc'])->first();
+    		/*$creator = User::find($request->creator_user['doc'])->first();
 
     		$project = new Project;
 			$project->name = $request->name;
 			$project->creatorUser()->associate($creator_user);
-	        $project->save();
+	        $project->save();*/
     	/*} catch (\Exception $e){
     		$response = [
                 'ok' => false,
@@ -51,6 +51,8 @@ class ProjectController extends Controller
             ];
     	}*/
 
-        return response()->json($response);
+        return response()->json([
+        	"data" => $$request->name
+        ]);
     }
 }
