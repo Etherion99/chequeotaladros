@@ -37,8 +37,8 @@ class ProjectController extends Controller
 
     	$response = [
             'ok' => false,
-            'code' => $request->creator->doc,
-            'message' => gettype($request->creator->doc)
+            'code' => $request->name,
+            'message' => gettype($request->name)
         ];
 
 
