@@ -24,7 +24,7 @@ class ProjectController extends Controller
 	}
 
     public function getAll(){
-    	$projects = Project::with('creator')->get();
+    	$projects = Project::with('creatorUser')->get();
 
     	return response()->json($projects);
     }
