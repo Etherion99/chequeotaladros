@@ -37,11 +37,11 @@ class ProjectController extends Controller
     	];
 
     	//try{
-    		$creator = User::find($request->creator['doc'])->first();
+    		$creator = User::find($request->creatorUser['doc'])->first();
 
     		$project = new Project;
 			$project->name = $request->name;
-			$project->creatorUser()->associate($creator);
+			$project->creatorUser()->associate($creatorUser);
 	        $project->save();
     	/*} catch (\Exception $e){
     		$response = [
