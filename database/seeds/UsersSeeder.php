@@ -6,13 +6,53 @@ class UsersSeeder extends Seeder
 {
     public function run()
     {
-        for($i = 1; $i < 6; $i++){
-	        DB::table('users')->insert([
-	            'doc' => $i,
-	            'name' => 'nombre '.$i,
-	            'email' => 'email '.$i,
-	            'password' => 'ABC'.$i
-	        ]);
-    	}
+        DB::table('users')->insert([
+            'doc' => $i,
+            'name' => 'Juan Camilo',
+            'email' => 'email '.$i,
+            'password' => 'ABC'.$i
+        ]);
+
+        DB::table('users')->insert([
+            'doc' => $i,
+            'name' => 'Camilo',
+            'email' => 'email '.$i,
+            'password' => 'ABC'.$i
+        ]);
+
+        DB::table('users')->insert([
+            'doc' => $i,
+            'name' => 'Pablo',
+            'email' => 'email '.$i,
+            'password' => 'ABC'.$i
+        ]);
+
+        DB::table('users')->insert([
+            'doc' => $i,
+            'name' => 'Juan Pablo',
+            'email' => 'email '.$i,
+            'password' => 'ABC'.$i
+        ]);
+
+        DB::table('users')->insert([
+            'doc' => $i,
+            'name' => 'Jose',
+            'email' => 'email '.$i,
+            'password' => 'ABC'.$i
+        ]);
+
+        DB::table('users')->insert([
+            'doc' => $i,
+            'name' => 'Juan Jose',
+            'email' => 'email '.$i,
+            'password' => 'ABC'.$i
+        ]);
+
+        DB::table('users')->insert([
+            'doc' => $i,
+            'name' => 'Luis Jose',
+            'email' => 'email '.$i,
+            'password' => 'ABC'.$i
+        ]);
     }
 }
