@@ -56,7 +56,7 @@ class UserController extends Controller
     }
 
     public function search(Request $request){
-        $text = $request->text;
+        $text = "pablo";
         $parts = count(explode(' ', $text));
 
         if($parts > 1){
