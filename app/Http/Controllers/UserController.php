@@ -64,11 +64,9 @@ class UserController extends Controller
                     ->limit(3)
                     ->get();
         }else{
-            $users = "";/*User::select("users.*", "professions.name as profession")
-                    ->join("professions", "users.profession", "=", "professions.id")
-                    ->where("users.name", "LIKE", "%" . $text . "%")
-                    ->orwhere("professions.name", "LIKE", "%" . $text . "%")
-                    ->limit(5)->get();*/
+            $users = User::where("name", "LIKE", "%" . $text . "%")
+                    ->limit(3)
+                    ->get();
         }
 
         return $users;
