@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Project;
+use App\User;
 
 class ProjectController extends Controller
 {
@@ -24,5 +25,14 @@ class ProjectController extends Controller
     	$projects = Project::with('creator')->get();
 
     	return response()->json($projects);
+    }
+
+    public function store(Request $request){
+    	$creator = User::find($request->creator->doc)->first();
+
+    	$project = new project;
+		$project->name = $request->doc;
+		$project->creator()->associate($creator);
+        $project->save();
     }
 }
