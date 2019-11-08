@@ -41,7 +41,7 @@ class ProjectController extends Controller
 
     		$project = new Project;
 			$project->name = $request->name;
-			$project->creator()->associate($creator);
+			$project->creatord()->associate($creator);
 	        $project->save();
     	/*} catch (\Exception $e){
     		$response = [

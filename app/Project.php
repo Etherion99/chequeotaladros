@@ -10,7 +10,7 @@ class Project extends Model
         'name', 'creator',
     ];
 
-    public function creator(){
+    public function creatord(){
     	return $this->belongsTo('App\User', 'creator');
     }
 }
