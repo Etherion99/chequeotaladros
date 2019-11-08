@@ -28,19 +28,26 @@ class ProjectController extends Controller
     }
 
     public function store(Request $request){
-    	/*$creator = User::find($request->creator->doc)->first();
-
-    	$project = new project;
-		$project->name = $request->name;
-		$project->creator()->associate($creator);
-        $project->save();*/
-
     	$response = [
-            'ok' => false,
-            'code' => 4,
-            'message' => $request->creator['doc']
-        ];
+    		'code' => 200,
+    		'message' => 'successful',
+    		'ok' => true
+    	];
 
+    	$creator = User::find($request->creator['doc'])->first();
+
+    	try{
+    		$project = new project;
+			$project->name = $request->name;
+			$project->creator()->associate($creator);
+	        $project->save();
+    	} catch (\Exception $e){
+    		$response = [
+                'ok' => false,
+                'code' => $e->errorInfo[1],
+                'message' => 'duplicate email'
+            ];
+    	}
 
         return response()->json($response);
     }
