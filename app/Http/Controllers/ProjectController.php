@@ -34,5 +34,9 @@ class ProjectController extends Controller
 		$project->name = $request->name;
 		$project->creator()->associate($creator);
         $project->save();
+
+        return response()->json([
+        	"data" => gettype($request->creator)
+        ]);
     }
 }
