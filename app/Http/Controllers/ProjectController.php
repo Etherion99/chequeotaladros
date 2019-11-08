@@ -28,12 +28,12 @@ class ProjectController extends Controller
     }
 
     public function store(Request $request){
-    	$creator = User::find($request->creator->doc)->first();
+    	/*$creator = User::find($request->creator->doc)->first();
 
     	$project = new project;
 		$project->name = $request->name;
 		$project->creator()->associate($creator);
-        $project->save();
+        $project->save();*/
 
         return response()->json([
         	"data" => gettype($request->creator)
