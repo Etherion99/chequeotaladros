@@ -64,7 +64,8 @@ class UserController extends Controller
                     ->limit(3)
                     ->get();
         }else{
-            $users = User::where("name", "LIKE", "%" . $text . "%")
+            $users = User::select("id", "name")
+                    where("name", "LIKE", "%" . $text . "%")
                     ->limit(3)
                     ->get();
         }
