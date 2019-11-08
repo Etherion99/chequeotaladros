@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Project;
 use App\User;
 
+use Exception;
+
 class ProjectController extends Controller
 {
 	public function show($id){
