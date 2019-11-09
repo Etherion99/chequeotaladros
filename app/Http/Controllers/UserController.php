@@ -59,12 +59,12 @@ class UserController extends Controller
         $parts = count(explode(' ', $text));
 
         if($parts > 1){
-            $users = User::select("id", "name")
+            $users = User::select("doc", "name")
                     ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
                     ->limit(3)
                     ->get();
         }else{
-            $users = User::select("id", "name")
+            $users = User::select("doc", "name")
                     ->where("name", "LIKE", "%" . $text . "%")
                     ->limit(3)
                     ->get();
