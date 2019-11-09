@@ -36,6 +36,21 @@ class ProjectController extends Controller
     		'ok' => true
     	];
 
+        $request = [
+            "name": "proyecto",
+            "creatorUser": {
+                "doc": 1
+            },
+            "shareUsers": [
+                {
+                    "doc": 2
+                },
+                {
+                    "doc": 3
+                }
+            ]
+        ]
+
     	//try{
     		$creator = User::find($request->creatorUser['doc'])->first();
 
