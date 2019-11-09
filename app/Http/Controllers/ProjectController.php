@@ -37,16 +37,16 @@ class ProjectController extends Controller
     	];
 
         $request = [
-            "name": "proyecto",
-            "creatorUser": {
-                "doc": 1
+            "name" => "proyecto",
+            "creatorUser" => {
+                "doc" => 1
             },
-            "shareUsers": [
+            "shareUsers" => [
                 {
-                    "doc": 2
+                    "doc" => 2
                 },
                 {
-                    "doc": 3
+                    "doc" => 3
                 }
             ]
         ]
