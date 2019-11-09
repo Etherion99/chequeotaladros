@@ -42,6 +42,12 @@ class ProjectController extends Controller
     		$project = new Project;
 			$project->name = $request->name;
 			$project->creatorUser()->associate($creator);
+
+            foreach($request->shareUsers as $shareUser){
+                $shareUser = User::find($shareUser['doc'])->first();
+                $project->shareUsers()->attach($shareUser);
+            }
+
 	        $project->save();
     	/*} catch (\Exception $e){
     		$response = [
