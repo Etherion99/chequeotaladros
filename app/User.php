@@ -19,4 +19,8 @@ class User extends Model
     public function projects(){
     	return $this->hasMany('App\Project', 'doc');
     }
+
+    public function shareProjects(){
+    	return $this->belongsTo('App\Project');
+    }
 }

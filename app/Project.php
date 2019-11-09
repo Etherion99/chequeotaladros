@@ -13,4 +13,8 @@ class Project extends Model
     public function creatorUser(){
     	return $this->belongsTo('App\User', 'creator');
     }
+
+    public function shareUsers(){
+    	return $this->belongsTo('App\User')
+    }
 }
