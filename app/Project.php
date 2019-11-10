@@ -10,11 +10,11 @@ class Project extends Model
         'name', 'creator',
     ];
 
-    public function creatorUser(){
+    public function creator_user(){
     	return $this->belongsTo('App\User', 'creator');
     }
 
-    public function shareUsers(){
+    public function share_users(){
     	return $this->belongsToMany('App\User');
     }
 }
