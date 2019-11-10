@@ -50,4 +50,19 @@ class ProjectController extends Controller
 
         return response()->json($response);
     }
+
+    public function delete(Request $request){
+        $response = [
+            'code' => 200,
+            'message' => 'successful',
+            'ok' => true
+        ];
+
+        foreach($request->projects as $project){
+            Project::where('doc', $project['doc'])
+                ->delete();
+        }
+
+        return response()->json($response);
+    }
 }
