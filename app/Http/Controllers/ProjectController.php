@@ -12,7 +12,7 @@ use Exception;
 class ProjectController extends Controller
 {
 	public function show($id){
-		$project = Project::where('id', $id)->get();
+		$project = Project::where('id', $id)->first();
 
 		return response()->json($project);
 	}
