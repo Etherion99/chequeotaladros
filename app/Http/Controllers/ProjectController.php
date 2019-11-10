@@ -55,17 +55,14 @@ class ProjectController extends Controller
 
         $response = [
             'code' => 200,
-            'message' => var_export($request),
+            'message' => 'successful',
             'ok' => true
         ];
 
-        /*$input = json_decode($request->getContent());
-        $i = json_decode(json_encode($input), true);
-
-        foreach($i as $project){
+        foreach($request->all() as $project){
             Project::where('id', $project['id'])
                 ->delete();
-        }*/
+        }
 
         return response()->json($response);
     }
