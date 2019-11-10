@@ -49,28 +49,21 @@ class ProjectController extends Controller
                     "doc" => 3
                 ]
             ]
-        ]
+        ];
 
-    	//try{
-    		$creator = User::find($request->creatorUser['doc'])->first();
+		$creator = User::find($request->creatorUser['doc'])->first();
 
-    		$project = new Project;
-			$project->name = $request->name;
-			$project->creatorUser()->associate($creator);
+		$project = new Project;
+		$project->name = $request->name;
+		$project->creatorUser()->associate($creator);
 
-            /*foreach($request->shareUsers as $shareUser){
-                $shareUser = User::find($shareUser['doc'])->first();
-                $project->shareUsers()->attach($shareUser);
-            }*/
+        /*foreach($request->shareUsers as $shareUser){
+            $shareUser = User::find($shareUser['doc'])->first();
+            $project->shareUsers()->attach($shareUser);
+        }*/
 
-	        $project->save();
-    	/*} catch (\Exception $e){
-    		$response = [
-                'ok' => false,
-                'code' => $e,
-                'message' => 'duplicate email'
-            ];
-    	}*/
+        $project->save();
+
 
         return response()->json($response);
     }
