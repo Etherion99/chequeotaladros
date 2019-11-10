@@ -59,14 +59,14 @@ class ProjectController extends Controller
             'ok' => true
         ];
 
-        $input = json_decode($request->getContent());
+        /*$input = json_decode($request->getContent());
         $i = json_decode(json_encode($input), true);
 
         foreach($i as $project){
             Project::where('id', $project['id'])
                 ->delete();
-        }
+        }*/
 
-        return response()->json($response);
+        var_dump($request);//return HttpResponse//response()->json($response);
     }
 }
