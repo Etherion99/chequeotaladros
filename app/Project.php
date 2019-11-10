@@ -15,6 +15,6 @@ class Project extends Model
     }
 
     public function shareUsers(){
-    	return $this->belongsTo('App\User');
+    	return $this->belongsToMany('App\User');
     }
 }
