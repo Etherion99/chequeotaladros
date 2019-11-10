@@ -52,10 +52,14 @@ class ProjectController extends Controller
     }
 
     public function delete(Request $request){
+        ob_start();
+        var_dump($request);
+        $str = ob_get_clean();
+
         $response = [
             'code' => 200,
             'message' => 'successful',
-            'ok' => gettype($request)
+            'ok' => $str
         ];
 
         /*foreach($request->projects as $project){
