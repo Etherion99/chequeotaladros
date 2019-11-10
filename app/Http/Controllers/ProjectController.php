@@ -55,13 +55,13 @@ class ProjectController extends Controller
         $response = [
             'code' => 200,
             'message' => 'successful',
-            'ok' => true
+            'ok' => gettype($request->projects)
         ];
 
-        foreach($request->projects as $project){
-            Project::where('doc', $project['doc'])
+        /*foreach($request->projects as $project){
+            Project::where('id', $project['id'])
                 ->delete();
-        }
+        }*/
 
         return response()->json($response);
     }
