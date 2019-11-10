@@ -55,7 +55,7 @@ class ProjectController extends Controller
         $response = [
             'code' => 200,
             'message' => 'successful',
-            'ok' => gettype($request->projects)
+            'ok' => gettype($request)
         ];
 
         /*foreach($request->projects as $project){
