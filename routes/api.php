@@ -21,4 +21,4 @@ Route::post('user/signup', 'UserController@signup');
 Route::post('user/login', 'UserController@login');
 Route::get('user/search/{text}', 'UserController@search');
 Route::get('project/all', 'ProjectController@getAll');
-Route::get('project/store', 'ProjectController@store');
+Route::post('project/store', 'ProjectController@store');
