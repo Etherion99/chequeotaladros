@@ -55,7 +55,7 @@ class ProjectController extends Controller
 
         $response = [
             'code' => 200,
-            'message' => 'successful',
+            'message' => var_export($request),
             'ok' => true
         ];
 
@@ -67,6 +67,6 @@ class ProjectController extends Controller
                 ->delete();
         }*/
 
-        var_dump($request);//return HttpResponse//response()->json($response);
+        return response()->json($response);
     }
 }
