@@ -14,7 +14,7 @@ class CreateProjectsTable extends Migration
             $table->string('creator', 12);
             $table->timestamps();
 
-            $table->foreign('creator')->references('doc')->on('users');
+            $table->foreign('creator')->references('doc')->on('users')->onDelete('cascade');;
         });
     }
 
