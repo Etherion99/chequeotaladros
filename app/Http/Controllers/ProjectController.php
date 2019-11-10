@@ -44,7 +44,7 @@ class ProjectController extends Controller
         $project->save();
 
         foreach($request->shareUsers as $shareUser){
-            $shareUserModel = User::find($shareUser['doc'])->first();
+            $shareUserModel = User::where('doc', $shareUser['doc'])->first();
             $project->shareUsers()->attach($shareUserModel);
         }
 
