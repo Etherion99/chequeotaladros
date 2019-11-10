@@ -56,13 +56,13 @@ class ProjectController extends Controller
         $response = [
             'code' => 200,
             'message' => 'successful',
-            'ok' => 4
+            'ok' => true
         ];
 
-        /*foreach($request->projects as $project){
+        foreach($request as $project){
             Project::where('id', $project['id'])
                 ->delete();
-        }*/
+        }
 
         return response()->json($response);
     }
