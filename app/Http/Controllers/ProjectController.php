@@ -30,7 +30,7 @@ class ProjectController extends Controller
     }
 
     public function store(Request $request){
-    	$response = [
+    	/*$response = [
     		'code' => 200,
     		'message' => 'successful',
     		'ok' => true
@@ -47,9 +47,9 @@ class ProjectController extends Controller
             $project->shareUsers()->attach($shareUser);
         }*/
 
-        $project->save();
+        /*$project->save();
 
 
-        return response()->json($response);
+        return response()->json($response);*/
     }
 }
