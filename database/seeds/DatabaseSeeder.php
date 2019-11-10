@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
         	UsersSeeder::class,
         	ProjectsSeeder::class,
-        	ProjectsUsersSeeder::class
+        	ProjectUserSeeder::class
         ]);
     }
 }
