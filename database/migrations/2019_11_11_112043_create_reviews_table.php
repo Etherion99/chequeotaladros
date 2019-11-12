@@ -4,22 +4,23 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
+class CreateReviewsTable extends Migration
 {
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigInteger('project_id')->unsigned();
             $table->string('creator', 12);
             $table->timestamps();
 
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('creator')->references('doc')->on('users')->onDelete('cascade');
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('reviews');
     }
 }
