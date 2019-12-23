@@ -6,7 +6,7 @@ class ReviewItemsSeeder extends Seeder
 {
     public function run()
     {
-        $data = arrayarray(
+        $data = array(
         	array(1, 'Placa de identificación de la torre array(en concordancia con API 4F,  Fabricante, licencia del fabricante, modelo, serie, capacidades de carga, PSL, entre otros', 1),
 			array(2, 'Inspecciones NDT categoría III y categoría IV actualizadas array(documentadas y en concordancia con API RP4G)', 1),
 			array(3, 'Verificación de la correcta operación de todas las poleas de la corona', 1),
