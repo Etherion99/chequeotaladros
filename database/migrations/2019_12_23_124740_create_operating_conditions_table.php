@@ -11,7 +11,7 @@ class CreateOperatingConditionsTable extends Migration
         Schema::create('operating_conditions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('type', ['n', 'p1', 'p2', 'p3']);
-            $table->bigInteger('record')->unseigned();
+            $table->bigInteger('record')->unsigned();
             $table->timestamps();
 
             $table->foreign('record')->references('id')->on('review_item_records')->onDelete('cascade');
