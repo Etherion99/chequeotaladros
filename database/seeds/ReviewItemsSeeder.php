@@ -603,7 +603,7 @@ class ReviewItemsSeeder extends Seeder
         );
 
         foreach($data as $row){
-	        DB::table('review_categories')->insert([
+	        DB::table('review_items')->insert([
 	            'id' => $row[0],
 	            'name' => $row[1],
 	            'category' => $row[2]
