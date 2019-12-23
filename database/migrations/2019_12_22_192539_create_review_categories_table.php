@@ -16,6 +16,6 @@ class CreateReviewCategoriesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('review_categories');
+        //Schema::dropIfExists('review_categories');
     }
 }

@@ -19,6 +19,6 @@ class CreateReviewItemsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('review_items');
+        //Schema::dropIfExists('review_items');
     }
 }
