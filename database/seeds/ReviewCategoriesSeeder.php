@@ -28,7 +28,7 @@ class ReviewCategoriesSeeder extends Seeder
 			'SCR'
         );
 
-        for($data as $row){
+        foreach($data as $row){
 	        DB::table('review_categories')->insert([
 	            'name' => $row,
 	        ]);
