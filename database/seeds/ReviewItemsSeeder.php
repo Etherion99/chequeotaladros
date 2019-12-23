@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 class ReviewItemsSeeder extends Seeder
 {
-    public function runarray()
+    public function run()
     {
         $data = arrayarray(
         	array(1, 'Placa de identificación de la torre array(en concordancia con API 4F,  Fabricante, licencia del fabricante, modelo, serie, capacidades de carga, PSL, entre otros', 1),
