@@ -36,19 +36,27 @@ class UserController extends Controller
     }
 
     public function login(Request $request){
-    	$user = User::where('doc', $request->doc)->where('password', $request->password)->first();
+    	$user = User::where('doc', $request->doc)->first();
 
     	if(!empty($user)){
-    		$response = [
-                'ok' => true,
-                'code' => 200,
-                'message' => 'successful'
-            ];
+            if(!Hash::check($request->password, $user->password)){
+                $response = [
+                    'ok' => false,
+                    'code' => 2,
+                    'message' => 'Contraseña incorrecta'
+                ];
+            }else{
+                $response = [
+                    'ok' => true,
+                    'code' => 200,
+                    'message' => 'successful'
+                ];
+            }
     	}else{
     		$response = [
                 'ok' => false,
-                'code' => 15,
-                'message' => 'invalid email or password'
+                'code' => 1,
+                'message' => 'Documento no registrado'
             ];
         }
 
