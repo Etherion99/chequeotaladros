@@ -13,6 +13,8 @@ class CreateReviewItemRecordsTable extends Migration
             $table->smallInteger('item')->unsigned();
             $table->String('comment', 250);
             $table->timestamps();
+
+            $table->foreign('item')->references('id')->on('review_items')->onDelete('cascade');
         });
     }
 
