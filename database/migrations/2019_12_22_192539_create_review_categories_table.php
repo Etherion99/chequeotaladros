@@ -10,7 +10,7 @@ class CreateReviewCategoriesTable extends Migration
     {
         Schema::create('review_categories', function (Blueprint $table) {
             $table->tinyIncrements('id');
-            $table->string('name', 30);
+            $table->string('name', 40);
         });
     }
 

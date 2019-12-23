@@ -12,6 +12,8 @@ class CreateReviewItemsTable extends Migration
             $table->smallIncrements('id');
             $table->string('name', 308);
             $table->tinyInteger('category');
+
+            $table->foreign('category')->references('id')->on('review_categories')->onDelete('cascade');
         });
     }
 
