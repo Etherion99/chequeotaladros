@@ -78,7 +78,7 @@ class UserController extends Controller
 
     public function update(Request $request){
         if($request->password != '')
-           $request->password = Hash::make($request->password); 
+           $request->merge(['password' => Hash::make($request->password)]); 
         else
             unset($request->password);
 
