@@ -18,21 +18,16 @@ class UserController extends Controller
     	];
 
     	try{
-    		$user = new User;
-    		$user->doc = $request->doc;
-    		$user->name = $request->name;
-            $user->email = $request->email;
-            $user->password = $request->password;
-            $user->save();
+    		User::create($request->all());
     	} catch (\Exception $e){
     		$response['ok'] = false;
 
             switch($e->errorInfo[1]){
                 case 1062:
-                    if(!empty(Member::where('doc', $request->doc)->first())){
+                    if(!empty(User::where('doc', $request->doc)->first())){
                         $response['message'] = 'Este documento ya ha sido registrado';
                         $response['code'] = 1;
-                    }else if(!empty(Member::where('email', $request->email)->first())){
+                    }else if(!empty(User::where('email', $request->email)->first())){
                         $response['message'] = 'Este correo ya ha sido registrado';
                         $response['code'] = 2;
                     }
