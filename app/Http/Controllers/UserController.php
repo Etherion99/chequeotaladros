@@ -84,7 +84,7 @@ class UserController extends Controller
 
         $response = [
             'code' => 200,
-            'message' => $request->password,
+            'message' => json_encode($request->all()),
             'ok' => true
         ];
 
