@@ -101,6 +101,8 @@ class UserController extends Controller
                 'ok' => false
             ];
         }
+
+        return response()->json($response);
     }
 
     public function search($text){
