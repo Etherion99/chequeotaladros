@@ -74,17 +74,21 @@ class UserController extends Controller
     	return response()->json($response);
     }
 
+    public function show($doc){
+       return response()->json(User::select('name', 'email')->find($doc)->first()); 
+    }
+
     public function search($text){
         $parts = count(explode(' ', $text));
 
         if($parts > 1){
-            $users = User::select("doc", "name")
-                    ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
+            $users = User::select('doc', 'name')
+                    ->whereRaw('MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)')
                     ->limit(3)
                     ->get();
         }else{
-            $users = User::select("doc", "name")
-                    ->where("name", "LIKE", "%" . $text . "%")
+            $users = User::select('doc', 'name')
+                    ->where('name', 'LIKE', '%' . $text . '%')
                     ->limit(3)
                     ->get();
         }
