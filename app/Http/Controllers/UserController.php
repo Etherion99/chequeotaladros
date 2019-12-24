@@ -97,7 +97,7 @@ class UserController extends Controller
         } catch (\Exception $e){
             $response = [
                 'code' => $e->errorInfo[1],
-                'message' => $e->errorInfo[2],
+                'message' => json_encode($request->all()),//$e->errorInfo[2],
                 'ok' => false
             ];
         }
