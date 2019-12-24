@@ -49,27 +49,25 @@ class UserController extends Controller
     public function login(Request $request){
     	$user = User::where('doc', $request->doc)->first();
 
-    	if(!empty($user)){
-            if(!Hash::check($request->password, $user->password)){
+    	if(!empty($user))
+            if(!Hash::check($request->password, $user->password))
                 $response = [
                     'ok' => false,
                     'code' => 2,
                     'message' => 'Contraseña incorrecta'
                 ];
-            }else{
+            else
                 $response = [
                     'ok' => true,
                     'code' => 200,
                     'message' => 'successful'
                 ];
-            }
-    	}else{
+    	else
     		$response = [
                 'ok' => false,
                 'code' => 1,
                 'message' => 'Documento no registrado'
             ];
-        }
 
     	return response()->json($response);
     }
@@ -78,20 +76,46 @@ class UserController extends Controller
        return response()->json(User::select('name', 'email')->where('doc', $doc)->first()); 
     }
 
+    public function update(Request $request){
+        if($request->password != '')
+           $request->password = Hash::make($request->password); 
+        else
+            unset($request->password);
+
+        $response = [
+            'code' => 200,
+            'message' => 'successful',
+            'ok' => true
+        ];
+
+        try{
+            $doc = $request->doc;
+
+            unset($request->doc);
+
+            User::where('doc', )->update($request->all());
+        } catch (\Exception $e){
+            $response = [
+                'code' => $e->errorInfo[1],
+                'message' => $e->errorInfo[2],
+                'ok' => false
+            ];
+        }
+    }
+
     public function search($text){
         $parts = count(explode(' ', $text));
 
-        if($parts > 1){
+        if($parts > 1)
             $users = User::select('doc', 'name')
                     ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
                     ->limit(3)
                     ->get();
-        }else{
+        else
             $users = User::select('doc', 'name')
                     ->where('name', 'LIKE', '%' . $text . '%')
                     ->limit(3)
                     ->get();
-        }
 
         return $users;
     }
