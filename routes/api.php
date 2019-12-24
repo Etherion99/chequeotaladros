@@ -24,6 +24,6 @@ Route::post('user/update', 'UserController@update');
 Route::get('user/search/{text}', 'UserController@search');
 
 Route::get('project/view/{id}', 'ProjectController@show');
-Route::get('project/all', 'ProjectController@getAll');
+Route::get('project/all', 'ProjectController@showAll');
 Route::post('project/store', 'ProjectController@store');
 Route::post('project/delete', 'ProjectController@delete');

@@ -11,6 +11,8 @@ use Exception;
 
 class ProjectController extends Controller
 {
+
+    //por revisar
 	public function show($id){
 		$project = Project::where('id', $id)->with(['creator_user', 'share_users'])->first();
 
@@ -23,7 +25,7 @@ class ProjectController extends Controller
 		return response()->json($projects);
 	}
 
-    public function getAll(){
+    public function showAll(){
     	$projects = Project::with('creator_user')->get();
 
     	return response()->json($projects);
