@@ -25,11 +25,26 @@ class UserController extends Controller
             $user->password = $request->password;
             $user->save();
     	} catch (\Exception $e){
-    		$response = [
-                'ok' => false,
-                'code' => $e->errorInfo[1],
-                'message' => 'duplicate email'
-            ];
+    		$response['ok'] = false;
+
+            switch($e->errorInfo[1]){
+                case 1062:
+                    if(!empty(Member::where('doc', $request->doc)->first())){
+                        $response['message'] = 'Este documento ya ha sido registrado';
+                        $response['code'] = 1;
+                    }else if(!empty(Member::where('email', $request->email)->first())){
+                        $response['message'] = 'Este correo ya ha sido registrado';
+                        $response['code'] = 2;
+                    }
+                    break;
+                default:
+                    $response = [
+                        'code' => $e->errorInfo[1],
+                        'message' => $e->errorInfo[2],
+                        'ok' => false
+                    ];
+                    break;
+            }
     	}
 
     	return response()->json($response);
