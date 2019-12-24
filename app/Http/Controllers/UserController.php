@@ -93,7 +93,7 @@ class UserController extends Controller
 
             unset($request->doc);
 
-            User::where('doc', )->update($request->all());
+            User::where('doc', $doc)->update($request->all());
         } catch (\Exception $e){
             $response = [
                 'code' => $e->errorInfo[1],
