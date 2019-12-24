@@ -75,7 +75,7 @@ class UserController extends Controller
     }
 
     public function show($doc){
-       return response()->json(User::select('name', 'email')->find($doc)->first()); 
+       return response()->json(User::select('name', 'email')->where('doc', $doc)->first()); 
     }
 
     public function search($text){
