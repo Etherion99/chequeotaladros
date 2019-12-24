@@ -88,7 +88,7 @@ class UserController extends Controller
             'ok' => true
         ];
 
-        /*try{
+        try{
             $doc = $request->doc;
 
             unset($request->doc);
@@ -100,7 +100,7 @@ class UserController extends Controller
                 'message' => json_encode($request->all()),//$e->errorInfo[2],
                 'ok' => false
             ];
-        }*/
+        }
 
         return response()->json($response);
     }
