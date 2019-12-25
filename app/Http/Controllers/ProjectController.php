@@ -12,6 +12,27 @@ use Exception;
 class ProjectController extends Controller
 {
 
+    public function showAll(){
+        $projects = Project::with('creator_user')->get();
+
+        return response()->json($projects);
+    }
+
+    public function delete(Request $request){
+
+        $response = [
+            'code' => 200,
+            'message' => 'successful',
+            'ok' => true
+        ];
+
+        foreach($request->all() as $project){
+            Project::where('id', $project['id'])->delete();
+        }
+
+        return response()->json($response);
+    }
+
     //por revisar
 	public function show($id){
 		$project = Project::where('id', $id)->with(['creator_user', 'share_users'])->first();
@@ -25,11 +46,7 @@ class ProjectController extends Controller
 		return response()->json($projects);
 	}
 
-    public function showAll(){
-    	$projects = Project::with('creator_user')->get();
-
-    	return response()->json($projects);
-    }
+    
 
     public function store(Request $request){
     	$response = [
@@ -53,19 +70,5 @@ class ProjectController extends Controller
         return response()->json($response);
     }
 
-    public function delete(Request $request){
-
-        $response = [
-            'code' => 200,
-            'message' => 'successful',
-            'ok' => true
-        ];
-
-        foreach($request->all() as $project){
-            Project::where('id', $project['id'])
-                ->delete();
-        }
-
-        return response()->json($response);
-    }
+    
 }
