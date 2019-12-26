@@ -18,6 +18,28 @@ class ProjectController extends Controller
         return response()->json($projects);
     }
 
+    public function store(Request $request){
+        $response = [
+            'code' => 200,
+            'message' => 'successful',
+            'ok' => true
+        ];
+
+        $creator = User::find($request->creator_user['doc'])->first();
+
+        $project = new Project;
+        $project->name = $request->name;
+        $project->creator_user()->associate($creator);
+        $project->save();
+
+        foreach($request->share_users as $shareUser){
+            $shareUserModel = User::where('doc', $shareUser['doc'])->first();
+            $project->share_users()->attach($shareUserModel);
+        }
+
+        return response()->json($response);
+    }
+
     public function delete(Request $request){
 
         $response = [
@@ -45,30 +67,4 @@ class ProjectController extends Controller
 
 		return response()->json($projects);
 	}
-
-    
-
-    public function store(Request $request){
-    	$response = [
-    		'code' => 200,
-    		'message' => 'successful',
-    		'ok' => true
-    	];
-
-		$creator = User::find($request->creator_user['doc'])->first();
-
-		$project = new Project;
-		$project->name = $request->name;
-		$project->creator_user()->associate($creator);
-        $project->save();
-
-        foreach($request->share_users as $shareUser){
-            $shareUserModel = User::where('doc', $shareUser['doc'])->first();
-            $project->share_users()->attach($shareUserModel);
-        }
-
-        return response()->json($response);
-    }
-
-    
 }
