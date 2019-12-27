@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReviewCategory extends Model
 {
-    public function items(){
+    public function Items(){
     	return $this->hasMany('App\ReviewItem');
     }
 }
