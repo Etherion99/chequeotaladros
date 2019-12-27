@@ -17,4 +17,4 @@ Route::get('project/all', 'ProjectController@showAll');
 Route::post('project/store', 'ProjectController@store');
 Route::post('project/delete', 'ProjectController@delete');
 
-Route::get('review/categories', 'ReviewCategoryController@showAll')
+Route::get('review/categories', 'ReviewCategoryController@showAll');
