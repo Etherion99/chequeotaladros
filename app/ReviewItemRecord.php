@@ -9,4 +9,8 @@ class ReviewItemRecord extends Model
     public function OperatingConditions(){
     	return $this->hasMany('App\OperatingCondition');
     }
+
+    public function review(){
+    	return $this->belongsTo('App\Review');
+    }
 }
