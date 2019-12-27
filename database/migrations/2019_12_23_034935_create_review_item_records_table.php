@@ -10,11 +10,13 @@ class CreateReviewItemRecordsTable extends Migration
     {
         Schema::create('review_item_records', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->smallInteger('item')->unsigned();
+            $table->bigInteger('review_id')->unsigned();
+            $table->smallInteger('item_id')->unsigned();
             $table->String('comment', 250);
             $table->timestamps();
 
-            $table->foreign('item')->references('id')->on('review_items')->onDelete('cascade');
+            $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
+            $table->foreign('item_id')->references('id')->on('review_items')->onDelete('cascade');
         });
     }
 
