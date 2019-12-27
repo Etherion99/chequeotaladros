@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\ReviewCategory;
 
 class ReviewCategoryController extends Controller{
-	
+
     public function showAll(){
-    	$categories = ReviewCategory::get();
+    	$categories = ReviewCategory::with('items')->get();
 
         return response()->json($categories);
     }
