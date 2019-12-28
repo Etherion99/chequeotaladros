@@ -13,4 +13,7 @@ class ReviewItemRecord extends Model
     public function review(){
     	return $this->belongsTo('App\Review');
     }
+    public function ReviewItemPhotos(){
+    	return $this->hasMany('App\ReviewItemPhoto');
+    }
 }
