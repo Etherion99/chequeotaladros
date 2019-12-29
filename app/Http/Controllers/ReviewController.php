@@ -21,8 +21,8 @@ class ReviewController extends Controller
     		]);
     	} catch (\Exception $e){
     		$response = [
-                'code' => $e->errorInfo[1],
-                'message' => $e->errorInfo[2],
+                'code' => 4,//$e->errorInfo[1],
+                'message' => 'gg',//$e->errorInfo[2],
                 'ok' => false
             ];
     	}
