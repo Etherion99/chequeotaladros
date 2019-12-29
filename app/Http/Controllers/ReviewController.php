@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Review;
 
 class ReviewController extends Controller
 {
@@ -13,7 +14,11 @@ class ReviewController extends Controller
             'ok' => true
         ];
 
-        
+        try{
+    		//Review::create([]);
+    	} catch (\Exception $e){
+
+    	}
         
     	return response()->json($response);
     }
