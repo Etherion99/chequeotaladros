@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class ReviewsSeeder extends Seeder
 {
@@ -10,6 +11,7 @@ class ReviewsSeeder extends Seeder
 	        DB::table('reviews')->insert([
 	            'project_id' => $i,
 	            'creator_doc' => 1,
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 	        ]);
     	}
 
@@ -17,6 +19,7 @@ class ReviewsSeeder extends Seeder
 	        DB::table('reviews')->insert([
 	            'project_id' => $i,
 	            'creator_doc' => 2,
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 	        ]);
     	}
 
@@ -24,6 +27,7 @@ class ReviewsSeeder extends Seeder
 	        DB::table('reviews')->insert([
 	            'project_id' => $i,
 	            'creator_doc' => 3,
+	            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
 	        ]);
     	}
     }
