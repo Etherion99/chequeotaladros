@@ -8,7 +8,7 @@ use App\Review;
 class ReviewController extends Controller
 {
 	public function showByProject($id){
-        $reviews = Review::where('project_id', $id)->with('creator_user')->get();
+        $reviews = Review::where('project_id', $id)->with('creator_user')->orderBy('created_at')->get();
 
         foreach($reviews as $review){
             $review->created_ago = $review->created_at->diffForHumans();
