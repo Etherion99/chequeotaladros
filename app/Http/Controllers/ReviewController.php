@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Review;
+use App\ReviewItemRecord;
 
 class ReviewController extends Controller
 {
@@ -25,10 +26,20 @@ class ReviewController extends Controller
         ];
 
         try{
-    		Review::create([
+    		$review = Review::create([
     			'creator_doc' => $request->creator_user['doc'],
     			'project_id' => $request->project['id']
     		]);
+
+            foreach($request->items_records as $categoryRecord){
+                foreach($categoryRecord->items as $itemRecod){
+                    ReviewItemRecord::create([
+                        'review_id' => $review->id,
+                        'item_id' => $itemRecod->item_id,
+                        'comment' => $itemRecod->comment
+                    ]);
+                }                
+            }
     	} catch (Exception $e){
     		$response = [
                 'code' => 4,//$e->errorInfo[1],
