@@ -11,7 +11,7 @@ class ReviewController extends Controller
         $reviews = Review::where('project_id', $id)->with('creator_user')->get();
 
         foreach($reviews as $review){
-            $review->created_at = "hola";
+            $review->created_at = $review->created_at->diffForHumans();
         }
 
 		return response()->json($reviews);
