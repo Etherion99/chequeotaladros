@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
 	protected $fillable = [
-        'creator_doc', 'project_id'
+        'creator_doc',
+        'project_id'
     ];
 
     public function creator_user(){
