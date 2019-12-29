@@ -8,7 +8,7 @@ use App\Review;
 class ReviewController extends Controller
 {
 	public function showByProject($id){
-		return response()->json(Review::where('project_id', $id)->with('')->get());
+		return response()->json(Review::where('project_id', $id)->with('creator')->get());
 	}
 
     public function store(Request $request){
