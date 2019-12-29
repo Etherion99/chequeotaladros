@@ -19,10 +19,10 @@ class ReviewController extends Controller
     			'creator' => $request->creator,
     			'project_id' => $request->project->id
     		]);
-    	} catch (\Exception $e){
+    	} catch (Exception $e){
     		$response = [
                 'code' => 4,//$e->errorInfo[1],
-                'message' => 'gg',//$e->errorInfo[2],
+                'message' => json_encode($e),//$e->errorInfo[2],
                 'ok' => false
             ];
     	}
