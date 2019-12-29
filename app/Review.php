@@ -11,7 +11,7 @@ class Review extends Model
     ];
 
     public function creator(){
-    	return $this->belongsTo('App\User', 'creator_doc');
+    	return $this->belongsTo('App\User', 'creator');
     }
 
     public function reviewItemRecords(){
