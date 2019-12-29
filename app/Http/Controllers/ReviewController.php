@@ -21,11 +21,11 @@ class ReviewController extends Controller
     public function store(Request $request){
     	$response = [
             'code' => 200,
-            'message' => 'successful',
+            'message' => json_encode($request->all()),//'successful',
             'ok' => true
         ];
 
-        try{
+        /*try{
     		$review = Review::create([
     			'creator_doc' => $request->creator_user['doc'],
     			'project_id' => $request->project['id']
@@ -46,7 +46,7 @@ class ReviewController extends Controller
                 'message' => json_encode($e),//$e->errorInfo[2],
                 'ok' => false
             ];
-    	}
+    	}*/
         
     	return response()->json($response);
     }
