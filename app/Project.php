@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     protected $fillable = [
-        'name', 'creator',
+        'name', 'creator_doc',
     ];
 
     public function creator_user(){
-    	return $this->belongsTo('App\User', 'creator');
+    	return $this->belongsTo('App\User', 'creator_doc');
     }
 
     public function share_users(){

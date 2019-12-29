@@ -17,11 +17,11 @@ class User extends Model
     protected $primaryKey = 'doc';
 
     public function reviews(){
-        return $this->hasMany('App\Review', 'creator');
+        return $this->hasMany('App\Review', 'creator_doc');
     }
 
     public function projects(){
-    	return $this->hasMany('App\Project', 'doc');
+    	return $this->hasMany('App\Project', 'creator');
     }
 
     public function shareProjects(){
