@@ -8,7 +8,13 @@ use App\Review;
 class ReviewController extends Controller
 {
 	public function showByProject($id){
-		return response()->json(Review::where('project_id', $id)->with('creator_user')->get());
+        $reviews = Review::where('project_id', $id)->with('creator_user')->get();
+
+        foreach($reviews as $review){
+            $review->created_at = "hola";
+        }
+
+		return response()->json($reviews);
 	}
 
     public function store(Request $request){
