@@ -7,7 +7,7 @@ use App\Review;
 
 class ReviewController extends Controller
 {
-    public function store(){
+    public function store(Request $request){
     	$response = [
             'code' => 200,
             'message' => 'successful',
@@ -15,9 +15,16 @@ class ReviewController extends Controller
         ];
 
         try{
-    		//Review::create([]);
+    		Review::create([
+    			'creator' => $request->creator,
+    			'project_id' => $request->project->id;
+    		]);
     	} catch (\Exception $e){
-
+    		$response = [
+                'code' => $e->errorInfo[1],
+                'message' => $e->errorInfo[2],
+                'ok' => false
+            ];
     	}
         
     	return response()->json($response);
