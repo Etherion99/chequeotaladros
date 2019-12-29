@@ -35,8 +35,8 @@ class ReviewController extends Controller
                 foreach($categoryRecord['items'] as $itemRecod){
                     ReviewItemRecord::create([
                         'review_id' => $review->id,
-                        'item_id' => $itemRecod->item_id,
-                        'comment' => $itemRecod->comment
+                        'item_id' => $itemRecod['item_id'],
+                        'comment' => $itemRecod['comment']
                     ]);
                 }                
             }
