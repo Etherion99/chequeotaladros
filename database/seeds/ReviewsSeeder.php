@@ -19,7 +19,7 @@ class ReviewsSeeder extends Seeder
 	        DB::table('reviews')->insert([
 	            'project_id' => $i,
 	            'creator_doc' => 2,
-	            'created_at' => Carbon::now()->add($i, 'hour')->format('Y-m-d H:i:s')
+	            'created_at' => Carbon::now()->add($i+1, 'hour')->format('Y-m-d H:i:s')
 	        ]);
     	}
 
@@ -27,7 +27,7 @@ class ReviewsSeeder extends Seeder
 	        DB::table('reviews')->insert([
 	            'project_id' => $i,
 	            'creator_doc' => 3,
-	            'created_at' => Carbon::now()->add($i, 'hour')->format('Y-m-d H:i:s')
+	            'created_at' => Carbon::now()->add($i+2, 'hour')->format('Y-m-d H:i:s')
 	        ]);
     	}
     }
