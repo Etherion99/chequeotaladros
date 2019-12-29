@@ -10,7 +10,7 @@ class Review extends Model
         'creator_doc', 'project_id'
     ];
 
-    public function creator(){
+    public function creator_user(){
     	return $this->belongsTo('App\User', 'creator_doc');
     }
 
