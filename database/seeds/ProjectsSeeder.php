@@ -9,7 +9,7 @@ class ProjectsSeeder extends Seeder
         for($i = 1; $i < 6; $i++){
 	        DB::table('projects')->insert([
 	            'name' => 'nombre '.$i,
-	            'creator' => $i,
+	            'creator_doc' => $i,
 	        ]);
     	}
     }
