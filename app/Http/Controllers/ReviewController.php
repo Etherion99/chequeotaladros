@@ -36,7 +36,7 @@ class ReviewController extends Controller
                     ReviewItemRecord::create([
                         'review_id' => $review->id,
                         'item_id' => $itemRecod['item_id'],
-                        'comment' => ''//$itemRecod['comment']
+                        'comment' => $itemRecod['comment']
                     ]);
                 }                
             }
