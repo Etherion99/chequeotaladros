@@ -10,6 +10,10 @@ class Review extends Model
         'creator', 'project_id'
     ];
 
+    public function creator(){
+    	return $this->belongsTo('App\User', 'creator');
+    }
+
     public function reviewItemRecords(){
     	return $this->hasMany('App\ReviewitemRecord');
     }
