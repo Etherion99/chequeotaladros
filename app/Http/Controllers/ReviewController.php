@@ -17,7 +17,7 @@ class ReviewController extends Controller
         try{
     		Review::create([
     			'creator' => $request->creator,
-    			'project_id' => $request->project->id
+    			'project_id' => $request->project['id']
     		]);
     	} catch (Exception $e){
     		$response = [
