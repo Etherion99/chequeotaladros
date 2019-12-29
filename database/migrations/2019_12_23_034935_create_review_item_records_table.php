@@ -12,7 +12,7 @@ class CreateReviewItemRecordsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('review_id')->unsigned();
             $table->smallInteger('item_id')->unsigned();
-            $table->String('comment', 250);
+            $table->String('comment', 250)->default("");
             $table->timestamps();
 
             $table->foreign('review_id')->references('id')->on('reviews')->onDelete('cascade');
