@@ -22,6 +22,8 @@ class ReviewItemRecordController extends Controller
     				->where('item_id', $item['id'])
     				->first();
 
+    			$record->photos = array();
+
     			$item->record = $record;
 
     			array_push($items, $item);
