@@ -8,6 +8,6 @@ use App\ReviewItemRecord;
 class ReviewItemRecordController extends Controller
 {
     public function showByReview($id){
-    	return response()->json(ReviewItemRecord::where('review_id', $id)->with('item.reviewCategory')->get());
+    	return response()->json(ReviewItemRecord::where('review_id', $id)->with('item.category')->get());
     }
 }
