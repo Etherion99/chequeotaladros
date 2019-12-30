@@ -11,7 +11,7 @@ class CreateReviewItemsTable extends Migration
         Schema::create('review_items', function (Blueprint $table) {
             $table->smallIncrements('id');
             $table->string('name', 350);
-            $table->tinyInteger('category')->unsigned();
+            $table->tinyInteger('category_id')->unsigned();
 
             $table->foreign('category')->references('id')->on('review_categories')->onDelete('cascade');
         });
