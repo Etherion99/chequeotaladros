@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ReviewItem extends Model
 {
-    public function ReviewCategory(){
+    public function reviewCategory(){
     	return $this->belongsTo('App\ReviewCategory', 'category');
     }
 
