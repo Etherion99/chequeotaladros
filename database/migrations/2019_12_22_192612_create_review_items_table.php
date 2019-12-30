@@ -13,7 +13,7 @@ class CreateReviewItemsTable extends Migration
             $table->string('name', 350);
             $table->tinyInteger('category_id')->unsigned();
 
-            $table->foreign('category')->references('id')->on('review_categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('review_categories')->onDelete('cascade');
         });
     }
 
