@@ -8,7 +8,8 @@ class OperatingCondition extends Model
 {
 	protected $fillable = [
         'type',
-        'value'
+        'value',
+        'record_id'
     ];
 
     public function record(){
