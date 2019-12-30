@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ReviewItemRecord;
 use App\ReviewCategory;
+use App\ReviewItem;
 
 class ReviewItemRecordController extends Controller
 {
@@ -14,20 +15,22 @@ class ReviewItemRecordController extends Controller
     	$categoryRecords = array();
 
     	foreach($categories as $category){
-    		$records = array();
+    		$items = array();
 
     		foreach($category['items'] as $item){
     			$record = ReviewItemRecord::where('review_id', $id)
     				->where('item_id', $item['id'])
     				->get();
 
-    			array_push($records, $record);
+    			$item->record = $record;
+
+    			array_push($items, $item);
     		}
 
     		array_push($categoryRecords, array(
     			'id' => $category['id'],
     			'name' => $category['name'],
-    			'items' => $records
+    			'items' => $items
     		));
     	}
 
