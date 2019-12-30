@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Review;
 use App\ReviewItemRecord;
+use App\OperatingCondition;
 
 class ReviewController extends Controller
 {
@@ -33,11 +34,19 @@ class ReviewController extends Controller
 
             foreach($request->items_records as $categoryRecord){
                 foreach($categoryRecord['items'] as $itemRecod){
-                    ReviewItemRecord::create([
+                    $record = ReviewItemRecord::create([
                         'review_id' => $review->id,
                         'item_id' => $itemRecod['item_id'],
                         'comment' => $itemRecod['comment']
                     ]);
+
+                    foreach($itemRecod['operating_conditions'] as $operatingCondition){
+                        OperatingCondition::create([
+                            'type' => $operatingCondition['type'],
+                            'value' => $operatingCondition['value'],
+                            'record_id'  => $record->id;
+                        ]);
+                    }                    
                 }                
             }
     	} catch (Exception $e){
