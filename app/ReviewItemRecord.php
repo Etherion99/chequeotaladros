@@ -12,8 +12,8 @@ class ReviewItemRecord extends Model
         'comment'
     ];
 
-    public function OperatingConditions(){
-    	return $this->hasMany('App\OperatingCondition');
+    public function operating_conditions(){
+    	return $this->hasMany('App\OperatingCondition', 'record_id');
     }
 
     public function review(){

@@ -11,10 +11,11 @@ class CreateOperatingConditionsTable extends Migration
         Schema::create('operating_conditions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('type', ['n', 'p1', 'p2', 'p3']);
-            $table->bigInteger('record')->unsigned();
+            $table->tinyInteger('value');
+            $table->bigInteger('record_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('record')->references('id')->on('review_item_records')->onDelete('cascade');
+            $table->foreign('record_id')->references('id')->on('review_item_records')->onDelete('cascade');
         });
     }
 
