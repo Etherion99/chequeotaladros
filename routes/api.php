@@ -18,3 +18,4 @@ Route::get('review/show/project/{id}', 'ReviewController@showByProject');
 Route::post('review/store', 'ReviewController@store');
 Route::post('review/items/records/{id}/photos', 'ReviewItemPhotoController@store');
 Route::get('review/items/records/show/{id}', 'ReviewItemRecordController@showByReview');
+Route::post('review/delete/{id}', 'ReviewController@delete');

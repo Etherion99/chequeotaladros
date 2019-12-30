@@ -50,4 +50,24 @@ class ReviewController extends Controller
         
     	return response()->json($response);
     }
+
+    public function delete($id){
+        $response = [
+            'code' => 200,
+            'message' => 'successful',
+            'ok' => true
+        ];
+
+        try{
+            Review::find($id)->delete();
+        } catch (Exception $e){
+            $response = [
+                'code' => 4,//$e->errorInfo[1],
+                'message' => json_encode($e),//$e->errorInfo[2],
+                'ok' => false
+            ];
+        }
+        
+        return response()->json($response);
+    }
 }
