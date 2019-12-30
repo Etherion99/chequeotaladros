@@ -25,7 +25,7 @@ class ReviewItemRecordController extends Controller
     		}
 
     		array_push($categoryRecords, array(
-    			'id' => ,
+    			'id' => $category['id'],
     			'items' => $records
     		));
     	}
