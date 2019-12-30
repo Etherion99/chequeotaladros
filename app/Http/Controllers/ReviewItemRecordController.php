@@ -28,7 +28,6 @@ class ReviewItemRecordController extends Controller
     			'id' => ,
     			'items' => $records
     		));
-    	
     	}
 
     	//ReviewItemRecord::where('review_id', $id)->with('item.category')->get();
