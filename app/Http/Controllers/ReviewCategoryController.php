@@ -9,7 +9,7 @@ use App\ReviewCategory;
 class ReviewCategoryController extends Controller{
 
     public function showAll(){
-    	$categories = ReviewCategory::where('id', 3)->with('Items')->get();
+    	$categories = ReviewCategory::where('id', 3)->with('items')->get();
 
         return response()->json($categories);
     }
