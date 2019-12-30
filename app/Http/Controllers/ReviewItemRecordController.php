@@ -23,6 +23,7 @@ class ReviewItemRecordController extends Controller
     				->first();
 
     			$record->photos = array();
+    			
 
     			$item->record = $record;
 
