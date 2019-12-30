@@ -44,7 +44,7 @@ class ReviewController extends Controller
                         OperatingCondition::create([
                             'type' => $operatingCondition['type'],
                             'value' => $operatingCondition['value'],
-                            'record_id'  => $record->id;
+                            'record_id'  => $record->id
                         ]);
                     }                    
                 }                
