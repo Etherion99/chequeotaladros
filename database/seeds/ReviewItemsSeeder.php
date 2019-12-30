@@ -606,7 +606,7 @@ class ReviewItemsSeeder extends Seeder
 	        DB::table('review_items')->insert([
 	            'id' => $row[0],
 	            'name' => $row[1],
-	            'category' => $row[2]
+	            'category_id' => $row[2]
 	        ]);
     	}
     }
