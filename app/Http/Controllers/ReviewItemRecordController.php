@@ -20,6 +20,7 @@ class ReviewItemRecordController extends Controller
     		foreach($category['items'] as $item){
     			$record = ReviewItemRecord::where('review_id', $id)
     				->where('item_id', $item['id'])
+                    ->with('operating_conditions')
     				->first();
 
     			if(isset($record))
