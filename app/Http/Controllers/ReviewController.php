@@ -22,12 +22,12 @@ class ReviewController extends Controller
     public function store(Request $request){
     	$response = [
             'code' => 200,
-            'message' => json_encode($request->all()),//'successful',
+            'message' => 'successful',
             'ok' => true
         ];
 
         try{
-    		/*$review = Review::updateOrCreate(
+    		$review = Review::updateOrCreate(
                 [
                     'id' => $request->id
                 ],
@@ -63,7 +63,7 @@ class ReviewController extends Controller
                         );
                     }                    
                 }                
-            }*/
+            }
     	} catch (Exception $e){
     		$response = [
                 'code' => 4,//$e->errorInfo[1],
