@@ -29,7 +29,7 @@ class ReviewController extends Controller
         try{
     		$review = Review::updateOrCreate(
                 [
-                    'id' => $request['id']
+                    'id' => $request->id
                 ],
                 [
                     'creator_doc' => $request->creator_user['doc'],
@@ -41,7 +41,7 @@ class ReviewController extends Controller
                 foreach($categoryRecord['items'] as $itemRecod){
                     $record = ReviewItemRecord::updateOrCreate(
                         [
-                            'id' => $itemRecod['id']
+                            'id' => $itemRecod->['id']
                         ],
                         [
                             'review_id' => $review->id,
@@ -53,7 +53,7 @@ class ReviewController extends Controller
                     foreach($itemRecod['operating_conditions'] as $operatingCondition){
                         OperatingCondition::updateOrCreate(
                             [
-                                'id' => $operatingCondition->id
+                                'id' => $operatingCondition->['id']
                             ],
                             [
                                 'type' => $operatingCondition['type'],
