@@ -25,7 +25,6 @@ class ReviewController extends Controller
             'message' => 'successful',
             'ok' => true
         ];
-        
 
         try{
     		$review = Review::updateOrCreate(
