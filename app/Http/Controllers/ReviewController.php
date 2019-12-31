@@ -39,18 +39,28 @@ class ReviewController extends Controller
 
             foreach($request->items_records as $categoryRecord){
                 foreach($categoryRecord['items'] as $itemRecod){
-                    $record = ReviewItemRecord::updateOrCreate([
-                        'review_id' => $review->id,
-                        'item_id' => $itemRecod['item_id'],
-                        'comment' => $itemRecod['comment']
-                    ]);
+                    $record = ReviewItemRecord::updateOrCreate(
+                        [
+                            'id' => $itemRecod->id
+                        ],
+                        [
+                            'review_id' => $review->id,
+                            'item_id' => $itemRecod['item_id'],
+                            'comment' => $itemRecod['comment']
+                        ]
+                    );
 
                     foreach($itemRecod['operating_conditions'] as $operatingCondition){
-                        OperatingCondition::updateOrCreate([
-                            'type' => $operatingCondition['type'],
-                            'value' => $operatingCondition['value'],
-                            'record_id'  => $record->id
-                        ]);
+                        OperatingCondition::updateOrCreate(
+                            [
+                                'id' => $operatingCondition->id
+                            ],
+                            [
+                                'type' => $operatingCondition['type'],
+                                'value' => $operatingCondition['value'],
+                                'record_id'  => $record->id
+                            ]
+                        );
                     }                    
                 }                
             }
