@@ -10,7 +10,7 @@ use App\ReviewItem;
 class ReviewItemRecordController extends Controller
 {
     public function showByReview($id){
-    	$categories = ReviewCategory::with('items')->get();
+    	$categories = ReviewCategory::where('id', 3)->with('items')->get(); //para borrar el 3
 
     	$categoryRecords = array();
 
