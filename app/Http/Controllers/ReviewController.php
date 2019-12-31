@@ -29,11 +29,11 @@ class ReviewController extends Controller
         try{
     		$review = Review::updateOrCreate(
                 [
-                'id' => $request->id;
+                    'id' => $request->id
                 ],
                 [
-			     'creator_doc' => $request->creator_user['doc'],
-			     'project_id' => $request->project['id']
+                    'creator_doc' => $request->creator_user['doc'],
+                    'project_id' => $request->project['id']
                 ]
             );
 
