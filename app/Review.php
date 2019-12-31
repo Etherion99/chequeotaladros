@@ -18,4 +18,8 @@ class Review extends Model
     public function reviewItemRecords(){
     	return $this->hasMany('App\ReviewitemRecord');
     }
+
+    public function project(){
+        return $this->belongsTo('App\Project', 'project_id');
+    }
 }

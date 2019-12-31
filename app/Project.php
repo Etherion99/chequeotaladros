@@ -10,6 +10,10 @@ class Project extends Model
         'name', 'creator_doc',
     ];
 
+    public function reviews(){
+    	return $this->hasMany('App\Review', 'project_id');
+    }
+
     public function creator_user(){
     	return $this->belongsTo('App\User', 'creator_doc');
     }
