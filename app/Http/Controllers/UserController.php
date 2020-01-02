@@ -105,7 +105,7 @@ class UserController extends Controller
         return response()->json($response);
     }
 
-    public function search($text){
+    public function search($text, Request $request){
         /*$parts = count(explode(' ', $text));
 
         if($parts > 1)
@@ -121,6 +121,6 @@ class UserController extends Controller
                     ->limit(5)
                     ->get();*/
 
-        return json_encode($text);
+        return json_encode($request);
     }
 }
