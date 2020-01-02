@@ -113,7 +113,7 @@ class UserController extends Controller
         if($parts > 1)
             $users = User::select('doc', 'name', 'email')
                     ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
-                    ->whereNotIn('doc', $exclided_users)
+                    ->whereNotIn('doc', $excluded_users)
                     ->limit(5)
                     ->get();
         else
@@ -123,6 +123,6 @@ class UserController extends Controller
                     ->limit(5)
                     ->get();
 
-        return json_encode($users);
+        return json_encode($excluded_users);
     }
 }
