@@ -121,6 +121,6 @@ class UserController extends Controller
                     ->limit(5)
                     ->get();*/
 
-        return json_encode($request);
+        return json_encode($request->all());
     }
 }
