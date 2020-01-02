@@ -108,19 +108,21 @@ class UserController extends Controller
     public function search($text, Request $request){
         $parts = count(explode(' ', $text));
 
+        $excluded_users = json_decode($request->excluded_users);
+
         if($parts > 1)
             $users = User::select('doc', 'name', 'email')
                     ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
-                    //->whereNotIn('doc', $request->excluded_users)
+                    ->whereNotIn('doc', $exclided_users)
                     ->limit(5)
                     ->get();
         else
             $users = User::select('doc', 'name', 'email')
                     ->where('name', 'LIKE', '%' . $text . '%')
-                    //->whereNotIn('doc', $request->excluded_users)
+                    ->whereNotIn('doc', $excluded_users)
                     ->limit(5)
                     ->get();
 
-        return json_encode($request->excluded_users);
+        return json_encode($users);
     }
 }
