@@ -111,16 +111,16 @@ class UserController extends Controller
         if($parts > 1)
             $users = User::select('doc', 'name', 'email')
                     ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
-                    ->whereNotIn('doc', $request->excluded_users)
+                    //->whereNotIn('doc', $request->excluded_users)
                     ->limit(5)
                     ->get();
         else
             $users = User::select('doc', 'name', 'email')
                     ->where('name', 'LIKE', '%' . $text . '%')
-                    ->whereNotIn('doc', $request->excluded_users)
+                    //->whereNotIn('doc', $request->excluded_users)
                     ->limit(5)
                     ->get();
 
-        return json_encode($users);
+        return json_encode($request->excluded_users);
     }
 }
