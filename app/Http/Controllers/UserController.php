@@ -111,12 +111,12 @@ class UserController extends Controller
         if($parts > 1)
             $users = User::select('doc', 'name', 'email')
                     ->whereRaw("MATCH(name) AGAINST('$text*' IN BOOLEAN MODE)")
-                    ->limit(3)
+                    ->limit(5)
                     ->get();
         else
             $users = User::select('doc', 'name', 'email')
                     ->where('name', 'LIKE', '%' . $text . '%')
-                    ->limit(3)
+                    ->limit(5)
                     ->get();
 
         return $users;
