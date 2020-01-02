@@ -117,7 +117,7 @@ class UserController extends Controller
             $users = User::select('doc', 'name', 'email')
                     ->where('name', 'LIKE', '%' . $text . '%')
                     ->limit(3)
-                    ->get(); 
+                    ->get();
 
         return $users;
     }
