@@ -105,8 +105,8 @@ class UserController extends Controller
         return response()->json($response);
     }
 
-    public function search($text, $excluded_users){
-        $parts = count(explode(' ', $text));
+    public function search($text){
+        /*$parts = count(explode(' ', $text));
 
         if($parts > 1)
             $users = User::select('doc', 'name', 'email')
@@ -119,8 +119,8 @@ class UserController extends Controller
                     ->where('name', 'LIKE', '%' . $text . '%')
                     ->whereNotIn('doc', $excluded_users)
                     ->limit(5)
-                    ->get();
+                    ->get();*/
 
-        return $users;
+        return json_encode($text);
     }
 }
