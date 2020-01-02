@@ -123,6 +123,6 @@ class UserController extends Controller
                     ->limit(5)
                     ->get();
 
-        return json_encode($excluded_users);
+        return json_encode($request->excluded_users);
     }
 }
