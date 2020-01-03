@@ -17,7 +17,7 @@ class ProjectController extends Controller
             $projects = Project::where('creator_doc', $request->user_doc)
                         ->with('creator_user')->get();
         else
-            $projects = User::find($request->user_doc)->projects()->get();
+            $projects = User::find($request->user_doc)->share_projects()->get();
 
         return response()->json($projects);
     }
