@@ -10,7 +10,6 @@ class DatabaseSeeder extends Seeder
         	UsersSeeder::class,
         	ProjectsSeeder::class,
             ReviewsSeeder::class,
-        	ProjectUsersSeeder::class,
         	ReviewCategoriesSeeder::class,
         	ReviewItemsSeeder::class
         ]);
