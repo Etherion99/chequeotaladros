@@ -12,8 +12,12 @@ use Exception;
 class ProjectController extends Controller
 {
 
-    public function showAll(){
-        $projects = Project::with('creator_user')->get();
+    public function showAll(Request $request){
+        if($request->own)
+            $projects = Project::where('creator_doc', $request->creator_doc)
+                        with('creator_user')->get();
+        else
+            $projects = Project::with('creator_user')->get();
 
         return response()->json($projects);
     }
