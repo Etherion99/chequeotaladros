@@ -19,7 +19,7 @@ class ProjectController extends Controller
         else
             $projects = Project::with('share_users')->get();
 
-        return response()->json($request->own);
+        return response()->json($projects);
     }
 
     public function store(Request $request){
