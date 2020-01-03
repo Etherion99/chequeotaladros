@@ -14,7 +14,7 @@ class ProjectController extends Controller
 
     public function showAll(Request $request){
         if($request->own)
-            $projects = Project::where('creator_doc', $request->creator_doc)
+            $projects = Project::where('creator_doc', $request->user_doc)
                         with('creator_user')->get();
         else
             $projects = Project::with('creator_user')->get();
