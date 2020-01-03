@@ -17,9 +17,9 @@ class ProjectController extends Controller
             $projects = Project::where('creator_doc', $request->user_doc)
                         ->with('creator_user')->get();
         else
-            $projects = Project::with('creator_user')->get();
+            $projects = Project::with('share_users')->get();
 
-        return response()->json($projects);
+        return response()->json($request->own);
     }
 
     public function store(Request $request){
