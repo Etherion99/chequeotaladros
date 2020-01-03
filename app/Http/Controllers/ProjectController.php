@@ -13,18 +13,16 @@ class ProjectController extends Controller
 {
 
     public function showAll(Request $request){
-        $own = $request->own;
-        
         if(gettype($request->own) == 'string')
-            $own == "true" ? true : false;
+            $request->own == "true" ? true : false;
 
-        if($own)
+        if($request->own)
             $projects = Project::where('creator_doc', $request->user_doc)
                         ->with('creator_user')->get();
         else
             $projects = User::find($request->user_doc)->share_projects()->get();
 
-        return response()->json($projects);
+        return response()->json($request->own == "true");
     }
 
     public function store(Request $request){
