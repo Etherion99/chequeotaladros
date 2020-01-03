@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ProjectUsersSeeder extends Seeder
+class UserProjectSeeder extends Seeder
 {
     public function run()
     {
