@@ -6,7 +6,7 @@ class UserProjectSeeder extends Seeder
 {
     public function run()
     {
-        for($i = 1; $i < 6; $i++){
+        for($i = 2; $i < 6; $i++){
 	        DB::table('user_project')->insert([
 	            'project_id' => $i,
 	            'user_doc' => 1,
