@@ -16,6 +16,8 @@ class ProjectController extends Controller
         if(gettype($request->own) == 'string')
             $request->own == "true" ? true : false;
 
+        $request->own = "kkl";
+
         if($request->own)
             $projects = Project::where('creator_doc', $request->user_doc)
                         ->with('creator_user')->get();
