@@ -14,8 +14,8 @@ class CreateUserProjectTable extends Migration
             $table->string('user_doc');
             $table->timestamps();
 
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');;
-            $table->foreign('user_doc')->references('doc')->on('users')->onDelete('cascade');;
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('user_doc')->references('doc')->on('users');
         });
     }
 
