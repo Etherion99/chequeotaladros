@@ -13,6 +13,8 @@ class ProjectController extends Controller
 {
 
     public function showAll(Request $request){
+        $own = $request->own;
+        
         if(gettype($request->own) == 'string')
             $own == "true" ? true : false;
 
