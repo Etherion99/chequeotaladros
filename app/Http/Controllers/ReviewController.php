@@ -22,14 +22,14 @@ class ReviewController extends Controller
     public function store(Request $request){
         $df = "";
 
-        foreach($request->photos as $photo){
+        /*foreach($request->photos as $photo){
             $df .= $photo->getClientOriginalName();
-        }
+        }*/
 
 
     	$response = [
             'code' => 200,
-            'message' => $df,
+            'message' => gettype($request->photos),
             'ok' => true
         ];
 
