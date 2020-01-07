@@ -22,7 +22,7 @@ class ReviewController extends Controller
     public function store(Request $request){
     	$response = [
             'code' => 200,
-            'message' => json_encode($request->file("photo")->path()),
+            'message' => json_encode($request->photo->path()),
             'ok' => true
         ];
 
