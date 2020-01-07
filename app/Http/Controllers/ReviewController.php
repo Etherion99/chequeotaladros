@@ -29,7 +29,7 @@ class ReviewController extends Controller
 
     	$response = [
             'code' => 200,
-            'message' => gettype($request->photos),
+            'message' => gettype($request->file("photos")),
             'ok' => true
         ];
 
