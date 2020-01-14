@@ -29,7 +29,7 @@ class ReviewController extends Controller
 
     	$response = [
             'code' => 205,
-            'message' => json_encode($request->file('photos[]')), 
+            'message' => json_encode($request->all()), 
             'ok' => true
         ];
 
