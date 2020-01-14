@@ -27,6 +27,16 @@ class ReviewItemPhotoController extends Controller
             'ok' => true
         ];
 
+        $m = "hola ";
+
+        foreach($request->file('photo') as $photo){
+            if(!is_null($photo)){
+                $m .= $photo->getClientOriginalExtension()."*  *";
+            }
+        }
+
+        $response['message'] = $m;
+
     	return response()->json($response);
     }
 }
