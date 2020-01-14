@@ -27,6 +27,6 @@ class ReviewItemPhotoController extends Controller
             'ok' => true
         ];
 
-    	return response()->json($projects);
+    	return response()->json($response);
     }
 }
