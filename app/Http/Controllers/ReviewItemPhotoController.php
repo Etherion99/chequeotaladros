@@ -17,7 +17,7 @@ class ReviewItemPhotoController extends Controller
             'ok' => true
         ];
 
-        foreach($request->file('photo') as $photo){
+        foreach($request->file('photos') as $photo){
             if(!is_null($photo)){
                
             }
