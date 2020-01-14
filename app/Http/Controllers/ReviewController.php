@@ -26,10 +26,11 @@ class ReviewController extends Controller
             $df .= $photo->getClientOriginalName();
         }*/
 
+        $requestData = $request->all();
 
     	$response = [
             'code' => 205,
-            'message' => json_encode($request->photos), 
+            'message' => json_encode($requestData['photos']), 
             'ok' => true
         ];
 
