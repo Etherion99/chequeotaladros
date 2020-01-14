@@ -30,7 +30,7 @@ class ReviewController extends Controller
 
     	$response = [
             'code' => 205,
-            'message' => json_encode($requestData['photos']), 
+            'message' => json_encode($requestData), 
             'ok' => true
         ];
 
