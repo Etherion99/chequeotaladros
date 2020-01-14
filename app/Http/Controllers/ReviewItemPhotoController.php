@@ -19,7 +19,7 @@ class ReviewItemPhotoController extends Controller
         ];
 
         try{
-            $l = "";
+            $l = "ll ";
             foreach($request->file('photos') as $photo){
                 $l .= $photo->getClientOriginalName();
                 if(!is_null($photo)){
