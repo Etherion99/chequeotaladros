@@ -23,7 +23,7 @@ class ReviewItemPhotoController extends Controller
 
     	$response = [
             'code' => 4,
-            'message' => json_encode($request->file("photos")),
+            'message' => json_encode($request->all()),
             'ok' => true
         ];
 
