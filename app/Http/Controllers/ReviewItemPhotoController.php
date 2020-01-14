@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ReviewItemPhoto;
 
 class ReviewItemPhotoController extends Controller
 {
@@ -17,10 +18,30 @@ class ReviewItemPhotoController extends Controller
             'ok' => true
         ];
 
-        foreach($request->file('photos') as $photo){
-            if(!is_null($photo)){
-               
+        try{
+            foreach($request->file('photos') as $photo){
+                if(!is_null($photo)){
+                    $record = ReviewItemRecord::where('review_id', $request->review)
+                        ->where('item_id', $request->item)
+                        ->get();
+
+                    $recordPhoto = ReviewItemPhoto::create([
+                        'review_item_record' => $record->id,
+                        'extension' => $photo->getClientOriginalExtension(),
+                    ]);
+
+                    if(!$photo->storeAs('/images/reviews/records/', $recordPhoto->id.$recordPhoto->extension)){
+                        $response['code'] = 108;
+                        $response['message'] = "Error al guardar imagen";
+                    }
+                }
             }
+        } catch (Exception $e){
+            $response = [
+                'code' => $e->errorInfo[1],
+                'message' => $e->errorInfo[2],
+                'ok' => false
+            ];
         }
 
     	return response()->json($response);
