@@ -20,14 +20,6 @@ class ReviewController extends Controller
 	}
 
     public function store(Request $request){
-        $df = "";
-
-        /*foreach($request->photos as $photo){
-            $df .= $photo->getClientOriginalName();
-        }*/
-
-        $requestData = $request->all();
-
     	$response = [
             'code' => 205,
             'message' => json_encode($request->all()), 
@@ -35,7 +27,7 @@ class ReviewController extends Controller
         ];
 
         try{
-    		/*$review = Review::updateOrCreate(
+    		$review = Review::updateOrCreate(
                 [
                     'id' => $request->id
                 ],
@@ -71,11 +63,11 @@ class ReviewController extends Controller
                         );
                     }                    
                 }                
-            }*/
+            }
     	} catch (Exception $e){
     		$response = [
-                'code' => 4,//$e->errorInfo[1],
-                'message' => json_encode($e),//$e->errorInfo[2],
+                'code' => $e->errorInfo[1],
+                'message' => $e->errorInfo[2],
                 'ok' => false
             ];
     	}

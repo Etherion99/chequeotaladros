@@ -16,7 +16,6 @@ Route::post('project/delete', 'ProjectController@delete');
 Route::get('review/categories', 'ReviewCategoryController@showAll');
 Route::get('review/show/project/{id}', 'ReviewController@showByProject');
 Route::post('review/store', 'ReviewController@store');
-//Route::post('review/update', 'ReviewController@store');
-Route::post('review/items/records/{id}/photos', 'ReviewItemPhotoController@store');
+Route::post('review/items/records/{id}/photos/store', 'ReviewItemPhotoController@store');
 Route::get('review/items/records/show/{id}', 'ReviewItemRecordController@showByReview');
 Route::post('review/delete/{id}', 'ReviewController@delete');
