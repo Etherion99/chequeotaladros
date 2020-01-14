@@ -10,7 +10,7 @@ class ReviewItemPhotoController extends Controller
 
     }
 
-    public function store(){
+    public function store($review, Request $request){
     	/*if($response['ok'] && !is_null($request->file('photo'))){
     		$photo = $request->file('photo');
 	        $name = $user->id.'.'.$photo->getClientOriginalExtension();
@@ -22,7 +22,7 @@ class ReviewItemPhotoController extends Controller
     	}*/
 
     	$response = [
-            'code' => 200,
+            'code' => $review,
             'message' => 'successful77',
             'ok' => true
         ];
