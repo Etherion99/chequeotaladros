@@ -40,7 +40,7 @@ class ReviewItemPhotoController extends Controller
                 }
             }
 
-            $response['message'] = $l;
+            $response['message'] = $request->all();
         } catch (Exception $e){
             $response = [
                 'code' => $e->errorInfo[1],
