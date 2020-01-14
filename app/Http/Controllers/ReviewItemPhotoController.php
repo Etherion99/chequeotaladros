@@ -20,7 +20,7 @@ class ReviewItemPhotoController extends Controller
 
         try{
             $l = "ll ";
-            foreach($request->file('photos') as $photo){
+            foreach($request->file('photo') as $photo){
                 $l .= $photo->getClientOriginalName();
                 /*if(!is_null($photo)){
                     $response['code'] = 88;
