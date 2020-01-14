@@ -19,7 +19,9 @@ class ReviewItemPhotoController extends Controller
         ];
 
         try{
+            $l = "";
             foreach($request->file('photos') as $photo){
+                $l .= $photo->getClientOriginalName();
                 if(!is_null($photo)){
                     $response['code'] = 88;
                     $record = ReviewItemRecord::where('review_id', $request->review)
@@ -37,6 +39,8 @@ class ReviewItemPhotoController extends Controller
                     }
                 }
             }
+
+            $response['message'] = $l;
         } catch (Exception $e){
             $response = [
                 'code' => $e->errorInfo[1],
