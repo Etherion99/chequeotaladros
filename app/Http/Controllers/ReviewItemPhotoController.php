@@ -13,7 +13,7 @@ class ReviewItemPhotoController extends Controller
     public function store(Request $request){
     	$response = [
             'code' => 4,
-            'message' => json_encode($request->items),
+            'message' => json_encode($request->review),
             'ok' => true
         ];
 
