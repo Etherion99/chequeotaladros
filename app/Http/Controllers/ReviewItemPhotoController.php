@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ReviewItemPhoto;
 use App\ReviewItemRecord;
+use Illuminate\Support\Facades\Storage;
+
 
 class ReviewItemPhotoController extends Controller
 {
