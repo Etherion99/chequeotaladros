@@ -27,12 +27,12 @@ class ReviewItemPhotoController extends Controller
                         ->where('item_id', $request->item)
                         ->get();
 
-                    $recordPhoto = ReviewItemPhoto::create([
+                    /*$recordPhoto = ReviewItemPhoto::create([
                         'review_item_record' => $record->id,
                         'extension' => $photo->getClientOriginalExtension(),
-                    ]);
+                    ]);*/
 
-                    $response['message'] = json_encode($recordPhoto);
+                    $response['message'] = json_encode($record);
 
                     /*if(!$photo->storeAs('/images/reviews/records/'.$record->id, $recordPhoto->id.$recordPhoto->extension)){
                         $response['code'] = 108;
