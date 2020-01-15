@@ -25,19 +25,17 @@ class ReviewItemPhotoController extends Controller
                     $response['code'] = 88;
                     $record = ReviewItemRecord::where('review_id', $request->review)
                         ->where('item_id', $request->item)
-                        ->get();
+                        ->first();
 
-                    /*$recordPhoto = ReviewItemPhoto::create([
+                    $recordPhoto = ReviewItemPhoto::create([
                         'review_item_record' => $record->id,
                         'extension' => $photo->getClientOriginalExtension(),
-                    ]);*/
+                    ]);
 
-                    $response['message'] = json_encode($record);
-
-                    /*if(!$photo->storeAs('/images/reviews/records/'.$record->id, $recordPhoto->id.$recordPhoto->extension)){
+                    if(!$photo->storeAs('/images/reviews/records/'.$record->id, $recordPhoto->id.$recordPhoto->extension)){
                         $response['code'] = 108;
                         $response['message'] = "Error al guardar imagen";
-                    }*/
+                    }
                 }
             }
         } catch (Exception $e){
