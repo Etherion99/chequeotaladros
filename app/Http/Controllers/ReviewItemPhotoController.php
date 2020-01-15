@@ -19,10 +19,8 @@ class ReviewItemPhotoController extends Controller
         ];
 
         try{
-            $l = "ll ";
             foreach($request->file('photo') as $photo){
-                $l .= $photo->getClientOriginalName();
-                /*if(!is_null($photo)){
+                if(!is_null($photo)){
                     $response['code'] = 88;
                     $record = ReviewItemRecord::where('review_id', $request->review)
                         ->where('item_id', $request->item)
@@ -37,10 +35,10 @@ class ReviewItemPhotoController extends Controller
                         $response['code'] = 108;
                         $response['message'] = "Error al guardar imagen";
                     }
-                }*/
+                }
             }
 
-            $response['message'] = json_encode($l);
+            $response['message'] = json_encode($response);
         } catch (Exception $e){
             $response = [
                 'code' => $e->errorInfo[1],
