@@ -40,7 +40,7 @@ class ReviewItemPhotoController extends Controller
                 }*/
             }
 
-            $response['message'] = json_encode($l;
+            $response['message'] = json_encode($l);
         } catch (Exception $e){
             $response = [
                 'code' => $e->errorInfo[1],
