@@ -26,7 +26,7 @@ class ReviewItemPhotoController extends Controller
                     $record = ReviewItemRecord::where('review_id', $request->review)
                         ->where('item_id', $request->item)
                         ->get();
-                    $response['message'] = $record->id;
+                    $response['message'] = json_encode($record);
                     /*$recordPhoto = ReviewItemPhoto::create([
                         'review_item_record' => $record->id,
                         'extension' => $photo->getClientOriginalExtension(),
