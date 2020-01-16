@@ -34,9 +34,7 @@ class ReviewItemPhotoController extends Controller
                         'extension' => $photo->getClientOriginalExtension(),
                     ]);
 
-                    Storage::disk('local');
-
-                    if(!$photo->storeAs('/images/reviews/records/'.$record->id, $recordPhoto->id.$recordPhoto->extension)){
+                    if(!$photo->storeAs('images'.$record->id, $recordPhoto->id.$recordPhoto->extension)){
                         $response['code'] = 108;
                         $response['message'] = "Error al guardar imagen";
                     }
