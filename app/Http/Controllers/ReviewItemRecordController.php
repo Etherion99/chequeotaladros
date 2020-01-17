@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\ReviewItemRecord;
 use App\ReviewCategory;
 use App\ReviewItem;
+use App\ReviewItemPhoto;
 
 class ReviewItemRecordController extends Controller
 {
@@ -24,7 +25,7 @@ class ReviewItemRecordController extends Controller
     				->first();
 
     			if(isset($record))
-    				$record->photos = array();
+    				$record->photos = ReviewItemPhoto::where('review_item_record', $record->id)->get();
 
 
     			$item->record = $record;
