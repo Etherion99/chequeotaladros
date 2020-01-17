@@ -25,7 +25,13 @@ class ReviewItemRecordController extends Controller
     				->first();
 
     			if(isset($record))
-    				$record->photos = ReviewItemPhoto::where('review_item_record', $record->id)->get();
+                    $photos = ReviewItemPhoto::where('review_item_record', $record->id)->get();
+
+                    foreach($photos as $photo){
+                        $photo->type = 'internet'
+                    }
+
+    				$record->photos = $photos;
 
 
     			$item->record = $record;
