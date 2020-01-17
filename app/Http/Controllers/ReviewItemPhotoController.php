@@ -16,7 +16,7 @@ class ReviewItemPhotoController extends Controller
         if(!isset($photo)){
             $path = storage_path('images/reviews/records/'.$photo->review_item_record.'/'.$photo->id.'.'.$photo->extension);
         }else{
-            $path = storage_path('assets/images/not_found.jpg');
+            $path = 'storage/app/assets/images/not_found.jpg';
         } 
 
         return response()->file($path);  
