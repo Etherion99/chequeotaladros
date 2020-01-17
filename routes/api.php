@@ -12,7 +12,6 @@ Route::get('project/view/{id}', 'ProjectController@show');
 Route::get('project/all', 'ProjectController@showAll');
 Route::post('project/store', 'ProjectController@store');
 Route::post('project/delete', 'ProjectController@delete');
-Route::get('project/shared_users', 'ProjectController@sharedUsers')
 
 Route::get('review/categories', 'ReviewCategoryController@showAll');
 Route::get('review/show/project/{id}', 'ReviewController@showByProject');
