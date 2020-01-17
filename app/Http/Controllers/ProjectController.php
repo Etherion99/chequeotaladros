@@ -18,7 +18,9 @@ class ProjectController extends Controller
 
         if($request->own)
             $projects = Project::where('creator_doc', $request->user_doc)
-                        ->with('creator_user')->get();
+                        ->with('creator_user')
+                        ->with('share_users')
+                        ->get();
         else
             $projects = User::find($request->user_doc)->share_projects()->get();
 
