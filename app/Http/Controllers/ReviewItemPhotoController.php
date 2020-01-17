@@ -10,8 +10,16 @@ use Illuminate\Support\Facades\Storage;
 
 class ReviewItemPhotoController extends Controller
 {
-    public function showByItem(){
+    public function show($id){
+        $photo = ReviewItemPhoto::find($id)->first();
 
+        if(isset($photo)){
+            $path = storage_path().'/images/reviews/records/'.$photo->review_item_record.'/'.$photo->id.'.'.$photo->extension;
+        }else{
+            $path = storage_path().'/assets/images/not_found.jpg';
+        } 
+
+        return response()->file($path);  
     }
 
     public function store(Request $request){
