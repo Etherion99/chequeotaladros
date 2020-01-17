@@ -19,7 +19,7 @@ class ReviewItemPhotoController extends Controller
             $path = storage_path().'/assets/images/not_found.jpg';
         } 
 
-        return response()->file($path);  
+        return response()->json($path);  
     }
 
     public function store(Request $request){
