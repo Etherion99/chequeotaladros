@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 class ReviewItemPhotoController extends Controller
 {
     public function show($id){
-        $photo = ReviewItemPhoto::find($id)->first();
+        $photo = ReviewItemPhoto::where('id', $id)->first();
 
         if(isset($photo)){
             $path = 'storage/app/images/reviews/records/'.$photo->review_item_record.'/'.$photo->id.'.'.$photo->extension;
