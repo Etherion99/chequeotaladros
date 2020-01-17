@@ -14,9 +14,9 @@ class ReviewItemPhotoController extends Controller
         $photo = ReviewItemPhoto::find($id)->first();
 
         if(!isset($photo)){
-            $path = storage_path('/images/reviews/records/'.$photo->review_item_record.'/'.$photo->id.'.'.$photo->extension);
+            $path = storage_path('images/reviews/records/'.$photo->review_item_record.'/'.$photo->id.'.'.$photo->extension);
         }else{
-            $path = storage_path('/assets/images/not_found.jpg');
+            $path = storage_path('assets/images/not_found.jpg');
         } 
 
         return response()->file($path);  
