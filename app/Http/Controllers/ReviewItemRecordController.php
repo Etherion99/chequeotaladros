@@ -28,7 +28,7 @@ class ReviewItemRecordController extends Controller
                     $photos = ReviewItemPhoto::where('review_item_record', $record->id)->get();
 
                     foreach($photos as $photo){
-                        $photo->type = 'internet'
+                        $photo->type = 'internet';
                     }
 
     				$record->photos = $photos;
