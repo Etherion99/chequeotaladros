@@ -71,9 +71,9 @@ class ProjectController extends Controller
             'ok' => true
         ];
 
-        foreach($request->project['shared_users'] as $user){
+        /*foreach($request->project['shared_users'] as $user){
 
-        }
+        }*/
         
         return response()->json($response);
     }
