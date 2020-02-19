@@ -64,17 +64,14 @@ class ProjectController extends Controller
     }
 
 
-    public function share_update($id, Request $request){
+    public function share_update($id){
         $response = [
             'code' => 200,
             'message' => 'successful',
             'ok' => true
         ];
 
-        foreach($request->all() as $user){
-
-        }
-
+        
         return response()->json($response);
     }
 
