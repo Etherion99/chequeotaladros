@@ -71,10 +71,10 @@ class ProjectController extends Controller
             'ok' => true
         ];
 
-        $shared_users = Project::find($request->id)->share_users()->delete();
+        Project::find($request->id)->share_users()->detach();
 
         foreach($request->share_users as $user){
-            Project::find($request->id)->share_users()->associate(User::find($user['doc']));
+            Project::find($request->id)->share_users()->attach($user['doc']);
         }
         
         return response()->json($response);
