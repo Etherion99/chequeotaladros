@@ -74,6 +74,8 @@ class ProjectController extends Controller
         foreach($request->all() as $user){
 
         }
+
+        return response()->json($response);
     }
 
     //por revisar
