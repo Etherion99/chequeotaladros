@@ -74,7 +74,7 @@ class ProjectController extends Controller
         $shared_users = Project::find($request->id)->share_users()->delete();
 
         foreach($request->share_users as $user){
-            Project::find($request->id)->attach(User::find($user['doc']));
+            Project::find($request->id)->share_users()->attach(User::find($user['doc']));
         }
         
         return response()->json($response);
