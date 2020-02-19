@@ -71,7 +71,7 @@ class ProjectController extends Controller
             'ok' => true
         ];
 
-        for($request->project['shared_users'] as $user){
+        foreach($request->project['shared_users'] as $user){
 
         }
         

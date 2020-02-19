@@ -20,4 +20,4 @@ Route::post('review/store', 'ReviewController@store');
 Route::post('review/items/records/photos/store', 'ReviewItemPhotoController@store');
 Route::get('review/items/records/photos/show/{id}', 'ReviewItemPhotoController@show');
 Route::get('review/items/records/show/{id}', 'ReviewItemRecordController@showByReview');
-Route::post('review/delete/{id}', 'ReviewController@delete'); 
+Route::post('review/delete/{id}', 'ReviewController@delete');
