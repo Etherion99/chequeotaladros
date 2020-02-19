@@ -67,7 +67,7 @@ class ProjectController extends Controller
     public function share_update(Request $request){
         $response = [
             'code' => 200,
-            'message4' => json_encode($request->all()),
+            'message' => json_encode($request->all()),
             'ok' => true
         ];
 
