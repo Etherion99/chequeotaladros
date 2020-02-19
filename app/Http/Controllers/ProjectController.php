@@ -50,7 +50,6 @@ class ProjectController extends Controller
     }
 
     public function delete(Request $request){
-
         $response = [
             'code' => 200,
             'message' => 'successful',
@@ -62,6 +61,19 @@ class ProjectController extends Controller
         }
 
         return response()->json($response);
+    }
+
+
+    public function share_update($id, Request $request){
+        $response = [
+            'code' => 200,
+            'message' => 'successful',
+            'ok' => true
+        ];
+
+        foreach($request->all() as $user){
+
+        }
     }
 
     //por revisar
