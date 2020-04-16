@@ -18,9 +18,10 @@ class UserController extends Controller
     	];
 
     	try{
-            $request->password = Hash::make($request->password);
-            $response['message'] = $request->password;
-    		User::create($request->all());
+            $userData = $request->all();
+            $userData['password'] = Hash::make($request->password);
+
+    		User::create($userData);
     	} catch (\Exception $e){
     		$response['ok'] = false;
 
