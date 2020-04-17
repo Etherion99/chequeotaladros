@@ -36,7 +36,7 @@ class ProjectController extends Controller
 
         $creator = User::find($request->creator_user['doc'])->first();
 
-        $response['message'] = $creator->name;
+        $response['message'] = $creator->email;
 
         $project = new Project;
         $project->name = $request->name;
