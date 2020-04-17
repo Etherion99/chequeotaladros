@@ -34,7 +34,7 @@ class ProjectController extends Controller
             'ok' => true
         ];
 
-        $creator = User::find($request->creator_user['doc'])->first();
+        $creator = User::find((int)$request->creator_user['doc'])->first();
 
         $response['message'] = $creator->doc;
 
