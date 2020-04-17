@@ -36,8 +36,6 @@ class ProjectController extends Controller
 
         $creator = User::where('doc', $request->creator_user['doc'])->first();
 
-        $response['message'] = $creator->email;
-
         $project = new Project;
         $project->name = $request->name;
         $project->creator_user()->associate($creator);
