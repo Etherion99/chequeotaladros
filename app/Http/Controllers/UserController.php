@@ -131,7 +131,7 @@ class UserController extends Controller
 
     public function sendCode($doc){
         $data = array(
-            'name': 'jose'
+            'name' => 'jose'
         );
 
         Mail::to('juanstt99@gmail.com')
