@@ -144,4 +144,10 @@ class UserController extends Controller
 
         return response()->json($data);
     }
+
+    public function verifyCode($doc, $code){
+        $user = User::select('code')->where('doc', $doc)->first();
+
+        return response()->json($user);
+    }
 }
