@@ -1,1 +1,1 @@
-<p>Prueba de mail</p>
+<p>Tu código de validación es: {{ $data['code'] }}</p>

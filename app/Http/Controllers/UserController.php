@@ -131,8 +131,12 @@ class UserController extends Controller
     }
 
     public function sendCode($doc){
+        $code = rand(0, 9).rand(0, 9).rand(0, 9).rand(0, 9).rand(0, 9).rand(0, 9);
+
+        User::where('doc', $doc)->update(['code' => $code]);
+
         $data = array(
-            'name' => 'jose'
+            'code' => $code
         );
 
         Mail::to('juanstt99@gmail.com')
