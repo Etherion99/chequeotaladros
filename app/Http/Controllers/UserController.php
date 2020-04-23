@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 use App\User;
+use App\Mail\PasswordMail;
 
 class UserController extends Controller
 {
