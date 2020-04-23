@@ -154,6 +154,6 @@ class UserController extends Controller
         if($code == $user->code)
             $repsonse['status'] = 'ok';
 
-        return response()->json($repsonse);
+        return response()->json($response);
     }
 }
