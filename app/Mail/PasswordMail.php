@@ -20,7 +20,7 @@ class PasswordMail extends Mailable
 
     public function build()
     {
-        return $this->from('ARR@services.com')
+        return $this->from('taladros@speuis.com')
             ->subject('recuperación de clave')
             ->view('resetPasswordMail')
             ->with('data', $this->data);
