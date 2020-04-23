@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 use App\User;
 
@@ -129,6 +130,13 @@ class UserController extends Controller
     }
 
     public function sendCode($doc){
+        $data = array(
+            'name': 'jose'
+        );
 
+        Mail::to('juanstt99@gmail.com')
+            ->send(new PasswordMail($data));
+
+        return response()->json($data);
     }
 }
