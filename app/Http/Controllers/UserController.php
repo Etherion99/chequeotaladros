@@ -127,4 +127,8 @@ class UserController extends Controller
 
         return json_encode($users);
     }
+
+    public function sendCode($doc){
+
+    }
 }
