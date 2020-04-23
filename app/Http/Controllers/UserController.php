@@ -150,7 +150,8 @@ class UserController extends Controller
 
         $response = array(
             'status' => $code,
-            'sd' => $user->code
+            'sd' => $user->code,
+            'sddd' => $code == $user->code
         );
 
         if($code == $user->code)
