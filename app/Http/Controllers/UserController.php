@@ -148,8 +148,7 @@ class UserController extends Controller
     public function verifyCode($doc, $code){
         $user = User::select('code')->where('doc', $doc)->first();
 
-        $response = array('status' => 'error');
-
+        $response = array('status' => $code);
 
         if($code == $user->code)
             $repsonse['status'] = 'ok';
