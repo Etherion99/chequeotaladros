@@ -139,7 +139,7 @@ class ReviewController extends Controller
     }
 
     public function downloadReport(){
-        $pdf = PDF::loadView('report');
+        $pdf = \PDF::loadView('report');
 
         $pdf->save(storage_path().'_filename.pdf');
 
