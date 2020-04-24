@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Review;
 use App\ReviewItemRecord;
 use App\OperatingCondition;
-use App\ReviewItemRecord;
 use App\ReviewCategory;
 use App\ReviewItem;
 use App\ReviewItemPhoto;
@@ -144,7 +143,7 @@ class ReviewController extends Controller
 
     public function report($id){
         $data = records($id);
-        
+
         return response()->view('report')->with('data', $data);
     }
 
