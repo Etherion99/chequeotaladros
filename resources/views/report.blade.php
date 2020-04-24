@@ -28,9 +28,7 @@
 			<th>COMENTARIO</th>
 		</tr>
 
-		{{ $items = $category['items'] }}
-
-		@foreach($items as $item)
+		@foreach($category['items'] as $item)
 
 		<tr>
 			<td>{{ $item['name'] }}</td>
