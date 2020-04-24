@@ -141,22 +141,6 @@ class ReviewController extends Controller
         return response()->json($response);
     }
 
-    public function report($id){
-        $data = records($id);
-
-        return response()->view('report')->with('data', $data);
-    }
-
-    public function downloadReport($id){
-        $data = records($id);
-
-        $pdf = \PDF::loadView('report', $data);
-
-        $pdf->save(storage_path().'_filename.pdf');
-
-        return $pdf->download('customers.pdf'); 
-    }
-
     public function records($id){
         $categories = ReviewCategory::with('items')->get(); 
 
@@ -194,5 +178,21 @@ class ReviewController extends Controller
         }
 
         return $categoryRecords; 
+    }
+
+    public function report($id){
+        $data = records($id);
+
+        return response()->view('report')->with('data', $data);
+    }
+
+    public function downloadReport($id){
+        $data = records($id);
+
+        $pdf = \PDF::loadView('report', $data);
+
+        $pdf->save(storage_path().'_filename.pdf');
+
+        return $pdf->download('customers.pdf'); 
     }
 }
