@@ -19,4 +19,6 @@
 	<p>Responsable:<u>                        </u></p>
 	<p>Fecha:<u>                        </u></p>
 </div>
-
+<table>
+	
+</table>

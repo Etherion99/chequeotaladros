@@ -46,7 +46,7 @@ class ReviewItemRecordController extends Controller
     		));
     	}
 
-    	//ReviewItemRecord::where('review_id', $id)->with('item.category')->get();
+    	ReviewItemRecord::where('review_id', $id)->with('item.category')->get();
 
     	return response()->json($categoryRecords);
     }
