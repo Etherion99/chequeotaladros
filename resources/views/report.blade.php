@@ -6,7 +6,7 @@
 <br><br>
 <div class="row">
 	<div class="col-6">
-		f
+		gggg
 	</div>
 	<div class="col-6">
 		ff
