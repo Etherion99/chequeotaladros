@@ -11,7 +11,7 @@ use App\ReviewItemPhoto;
 class ReviewItemRecordController extends Controller
 {
     public function showByReview($id){
-    	$categories = ReviewCategory::where('id', $id)->with('items')->get(); //para borrar el 3
+    	$categories = ReviewCategory::with('items')->get();
 
     	$categoryRecords = array();
 
@@ -46,7 +46,7 @@ class ReviewItemRecordController extends Controller
     		));
     	}
 
-    	ReviewItemRecord::where('review_id', $id)->with('item.category')->get();
+    	//ReviewItemRecord::where('review_id', $id)->with('item.category')->get();
 
     	return response()->json($categoryRecords);
     }
