@@ -11,7 +11,7 @@ use App\ReviewItemPhoto;
 class ReviewItemRecordController extends Controller
 {
     public function showByReview($id){
-    	$categories = ReviewCategory::with('items')->get();
+    	$categories = ReviewCategory::with('items')->get(); 
 
     	$categoryRecords = array();
 
@@ -48,6 +48,6 @@ class ReviewItemRecordController extends Controller
 
     	//ReviewItemRecord::where('review_id', $id)->with('item.category')->get();
 
-    	return response()->json($categories);
+    	return response()->json(array("ff"=>"ffd"));
     }
 }
