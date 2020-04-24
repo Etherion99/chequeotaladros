@@ -1,4 +1,21 @@
-<h1><center>RIG ACCEPTANCE APP</center></h1>
-<div class="col-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem velit, minus eligendi fugiat, consequuntur deleniti. Quasi amet, repellat ipsam, laborum, rem at vel suscipit beatae voluptatibus accusamus perspiciatis non earum!</div>
-<div class="col-3">Veniam quisquam aliquid similique blanditiis consequatur error, quod eaque voluptatem quis accusamus omnis illo, ex vel, animi reprehenderit deserunt reiciendis autem voluptatum mollitia possimus vitae dolorem molestias officia. Nostrum, recusandae.</div>
-<div class="col-3">Repellat sunt magnam corrupti praesentium possimus laboriosam commodi beatae nam eos. Velit aliquid, nihil. Id fugit molestias blanditiis. Libero, iusto repellendus architecto maiores obcaecati iste voluptas omnis illum eaque labore.</div>
+<style>
+	.column{
+		width: 50%;
+	}
+</style>
+
+<h3><center>RIG ACCEPTANCE APP</center></h3>
+<br><br>
+<h5><center>REPORTE</center></h5>
+<br><br>
+<div class="column">
+	<p>Empresa operadora:<u>                        </u></p>
+	<p>Responsable:<u>                        </u></p>
+	<p>Fecha:<u>                        </u></p>
+</div>
+<div class="column">
+	<p>Empresa equipo perforación:<u>                        </u></p>
+	<p>Responsable:<u>                        </u></p>
+	<p>Fecha:<u>                        </u></p>
+</div>
+
