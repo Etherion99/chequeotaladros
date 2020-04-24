@@ -143,7 +143,6 @@ class ReviewController extends Controller
     }
 
     public function downloadReport($id){
-        $data = ;
 
         $pdf = \PDF::loadView('report', $data);
 
