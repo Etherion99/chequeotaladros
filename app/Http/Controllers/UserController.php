@@ -145,13 +145,15 @@ class UserController extends Controller
         return response()->json($data);
     }
 
-    public function verifyCode($doc, $code){
-        $user = User::select('code')->where('doc', $doc)->first();
+    public function verifyCode(Request $request){
+        $user = User::select('code')->where('doc', $request['doc'])->first();
 
         $response = array('ok' => false);
 
-        if($code == $user->code)
+        if($request['code'] == $user->code){
+            User::where('doc', $request['doc'])->update(['password' => Hash::make($request['password'])])
             $response['ok'] = true;
+        }
 
         return response()->json($response);
     }

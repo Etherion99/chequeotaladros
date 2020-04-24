@@ -8,7 +8,7 @@ Route::get('user/show/{doc}', 'UserController@show');
 Route::post('user/update', 'UserController@update');
 Route::get('user/search/{text}', 'UserController@search');
 Route::get('user/sendResetPassMail/{doc}', 'UserController@sendCode');
-Route::get('user/verifyResetPassword/{doc}/{code}', 'UserController@verifyCode');
+Route::get('user/verifyResetPassword', 'UserController@verifyCode');
 
 Route::get('project/view/{id}', 'ProjectController@show');
 Route::get('project/all', 'ProjectController@showAll');
