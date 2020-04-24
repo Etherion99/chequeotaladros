@@ -29,7 +29,11 @@
 		</tr>
 
 		@foreach($category['items'] as $item)
-		{{ $record = $item['record']; $oc = $record['operating_conditions']; $val = $oc['value']; }}
+		@php
+			$record = $item['record'];
+			$oc = $record['operating_conditions'];
+			$val = $oc['value'];
+		@endphp
 		<tr>
 			<td>{{ $item['name'] }}</td>
 			<td>{{ $val == '1' ? 'X' : '' }}</td>
