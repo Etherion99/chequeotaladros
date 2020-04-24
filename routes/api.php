@@ -23,3 +23,5 @@ Route::post('review/items/records/photos/store', 'ReviewItemPhotoController@stor
 Route::get('review/items/records/photos/show/{id}', 'ReviewItemPhotoController@show');
 Route::get('review/items/records/show/{id}', 'ReviewItemRecordController@showByReview');
 Route::post('review/delete/{id}', 'ReviewController@delete');
+
+Route::get('review/report', 'ReviewController@downloadReport')->name('report.pdf');

@@ -137,4 +137,12 @@ class ReviewController extends Controller
         
         return response()->json($response);
     }
+
+    public function downloadReport(){
+        $pdf = PDF::loadView('report');
+
+        $pdf->save(storage_path().'_filename.pdf');
+
+        return $pdf->download('customers.pdf');
+    }
 }
