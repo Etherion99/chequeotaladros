@@ -3,6 +3,9 @@
 		width: 50%;
 		display: inline-block;
 	}
+	table, th, td {
+	  border: 1px solid black;
+	}
 </style>
 
 <h3><center>RIG ACCEPTANCE APP</center></h3>
@@ -36,9 +39,9 @@
 		@endphp
 		<tr>
 			<td>{{ $item['name'] }}</td>
-			<td>{{ $val == '1' ? 'X' : '' }}</td>
-			<td>{{ $val == '0' ? 'X' : '' }}</td>
-			<td>{{ $record['comment'] }}</td>
+			<td><center>{{ $val == '1' ? 'X' : '' }}</center></td>
+			<td><center>{{ $val == '0' ? 'X' : '' }}</center></td>
+			<td><center>{{ $record['comment'] }}</center></td>
 		</tr>
 
 		@endforeach

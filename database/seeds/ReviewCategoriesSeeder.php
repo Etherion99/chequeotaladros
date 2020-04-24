@@ -25,7 +25,8 @@ class ReviewCategoriesSeeder extends Seeder
 			'Acumulador',
 			'Choke Manifold',
 			'MCC',
-			'SCR'
+			'SCR',
+			'EPP – HSE'
         );
 
         foreach($data as $row){
