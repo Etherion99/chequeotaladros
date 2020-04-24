@@ -48,6 +48,6 @@ class ReviewItemRecordController extends Controller
 
     	//ReviewItemRecord::where('review_id', $id)->with('item.category')->get();
 
-    	return response()->json(array("ff"=>"ffd"));
+    	return response()->json($categoryRecords);
     }
 }
