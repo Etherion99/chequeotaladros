@@ -151,7 +151,7 @@ class UserController extends Controller
         $response = array('ok' => false);
 
         if($request['code'] == $user->code){
-            User::where('doc', $request['doc'])->update(['password' => Hash::make($request['password'])])
+            User::where('doc', $request['doc'])->update(['password' => Hash::make($request['password'])]);
             $response['ok'] = true;
         }
 
