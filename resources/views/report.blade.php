@@ -20,5 +20,12 @@
 	<p>Fecha:<u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p>
 </div>
 <table>
-	
+	@foreach($data as $category)
+		<tr>
+			<th>{{ $category->name }}</th>
+			<th>SÍ</th>
+			<th>NO</th>
+			<th>COMENTARIO</th>
+		</tr>
+	@endforeach
 </table>
