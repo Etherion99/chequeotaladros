@@ -148,6 +148,6 @@ class ReviewController extends Controller
 
         $pdf->save(storage_path().'_filename.pdf');
 
-        return $pdf->download('customers.pdf');
+        return $pdf->download('customers.pdf'); 
     }
 }
