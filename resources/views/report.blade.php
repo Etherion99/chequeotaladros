@@ -1,6 +1,7 @@
 <style>
 	.column{
 		width: 50%;
+		display: inline-block;
 	}
 </style>
 
@@ -9,7 +10,7 @@
 <h5><center>REPORTE</center></h5>
 <br><br>
 <div class="column">
-	<p>Empresa operadora:<u>                        </u></p>
+	<p>Empresa operadora:<u>     kk                   </u></p>
 	<p>Responsable:<u>                        </u></p>
 	<p>Fecha:<u>                        </u></p>
 </div>
