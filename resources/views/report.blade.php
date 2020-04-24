@@ -32,9 +32,9 @@
 
 		<tr>
 			<td>{{ $item['name'] }}</td>
-			<td>X</td>
-			<td></td>
-			<td></td>
+			<td>{{ $item['record']['operating_conditions']['value'] == '1' ? 'X' : '' }}</td>
+			<td>{{ $item['record']['operating_conditions']['value'] == '0' ? 'X' : '' }}</td>
+			<td>{{ $item['record']['comment'] }}</td>
 		</tr>
 
 		@endforeach
