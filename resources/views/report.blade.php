@@ -31,7 +31,7 @@
 		@foreach($category['items'] as $item)
 		@php
 			$record = $item['record'];
-			$oc = $record['operating_conditions'];
+			$oc = $record['operating_conditions'][0];
 			$val = $oc['value'];
 		@endphp
 		<tr>
