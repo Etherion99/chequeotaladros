@@ -193,6 +193,6 @@ class ReviewController extends Controller
             ));
         }
 
-        return $categoryRecords;
+        return $categoryRecords; 
     }
 }
