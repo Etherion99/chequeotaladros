@@ -138,6 +138,10 @@ class ReviewController extends Controller
         return response()->json($response);
     }
 
+    public function report(){
+        return response()->view('report');
+    }
+
     public function downloadReport(){
         $pdf = \PDF::loadView('report');
 
