@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Review;
 use App\ReviewItemRecord;
 use App\OperatingCondition;
+use App\ReviewItemRecord;
+use App\ReviewCategory;
+use App\ReviewItem;
+use App\ReviewItemPhoto;
 
 class ReviewController extends Controller
 {
@@ -139,15 +143,57 @@ class ReviewController extends Controller
     }
 
     public function report($id){
-        return response()->view('report');
+        $data = records($id);
+        
+        return response()->view('report')->with('data', $data);
     }
 
     public function downloadReport($id){
+        $data = records($id);
 
         $pdf = \PDF::loadView('report', $data);
 
         $pdf->save(storage_path().'_filename.pdf');
 
         return $pdf->download('customers.pdf'); 
+    }
+
+    public function records($id){
+        $categories = ReviewCategory::with('items')->get(); 
+
+        $categoryRecords = array();
+
+        foreach($categories as $category){
+            $items = array();
+
+            foreach($category['items'] as $item){
+                $record = ReviewItemRecord::where('review_id', $id)
+                    ->where('item_id', $item['id'])
+                    ->with('operating_conditions')
+                    ->first();
+
+                if(isset($record))
+                    $photos = ReviewItemPhoto::where('review_item_record', $record->id)->get();
+
+                    foreach($photos as $photo){
+                        $photo->type = 'internet';
+                    }
+
+                    $record->photos = $photos;
+
+
+                $item->record = $record;
+
+                array_push($items, $item);
+            }
+
+            array_push($categoryRecords, array(
+                'id' => $category['id'],
+                'name' => $category['name'],
+                'items' => $items
+            ));
+        }
+
+        return $categoryRecords;
     }
 }
