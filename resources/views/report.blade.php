@@ -29,12 +29,12 @@
 		</tr>
 
 		@foreach($category['items'] as $item)
-
+		{{ $record = $item['record']; $oc = $record['operating_conditions']; $val = $oc['value']; }}
 		<tr>
 			<td>{{ $item['name'] }}</td>
-			<td>{{ $item['record']['operating_conditions']['value'] == '1' ? 'X' : '' }}</td>
-			<td>{{ $item['record']['operating_conditions']['value'] == '0' ? 'X' : '' }}</td>
-			<td>{{ $item['record']['comment'] }}</td>
+			<td>{{ $val == '1' ? 'X' : '' }}</td>
+			<td>{{ $val == '0' ? 'X' : '' }}</td>
+			<td>{{ $record['comment'] }}</td>
 		</tr>
 
 		@endforeach
