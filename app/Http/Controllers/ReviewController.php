@@ -183,7 +183,7 @@ class ReviewController extends Controller
     public function report($id){
         $data = $this->records($id);
 
-        return response()->view('report')->with('data', $data);
+        return view('report')->with('data', $data);
     }
 
     public function downloadReport($id){
