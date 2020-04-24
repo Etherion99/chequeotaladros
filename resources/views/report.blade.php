@@ -22,7 +22,7 @@
 <table>
 	@foreach($data as $category)
 		<tr>
-			<th>{{ $category->name }}</th>
+			<th>{{ $category['name'] }}</th>
 			<th>SÍ</th>
 			<th>NO</th>
 			<th>COMENTARIO</th>
