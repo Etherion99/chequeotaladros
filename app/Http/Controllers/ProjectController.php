@@ -22,7 +22,10 @@ class ProjectController extends Controller
                         ->with('share_users')
                         ->get();
         else
-            $projects = User::find($request->user_doc)->share_projects()->get();
+            $projects = User::find($request->user_doc)
+                        ->share_projects()
+                        ->with('share_users')
+                        ->get();
 
         return response()->json($projects);
     }
